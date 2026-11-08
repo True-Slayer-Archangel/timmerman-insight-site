@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>Operational Finance Control Tower · Omari Timmerman</title>
+<meta name="description" content="An Excel and Google Sheets cash control tower for a prepaid fulfillment business: available operating cash after client money and vendor bills, a month end picker, eight controls, a three month forecast, and 24 built in checks.">
+<link rel="canonical" href="https://timmermaninsight.com/operational-finance-control.html">
+<meta property="og:url" content="https://timmermaninsight.com/operational-finance-control.html">
+<meta property="og:title" content="Operational Finance Control Tower · Omari Timmerman">
+<meta property="og:description" content="An Excel and Google Sheets cash control tower for a prepaid fulfillment business: available operating cash after client money and vendor bills, a month end picker, eight controls, a three month forecast, and 24 built in checks.">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-page">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-lead">
+      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+      <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+      <div class="nav-build-switcher">
+        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
+        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="detail-hero">
+    <div class="wrap">
+      <div class="build-nav reveal">
+        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+        <div class="build-switcher">
+          <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
+          <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+        </div>
+      </div>
+
+      <header class="build-header reveal">
+        <span class="eyebrow">Sample build</span>
+        <h1>Operational Finance Control Tower</h1>
+        <p class="summary">A fourteen tab Excel workbook, with a Google Sheets version, for a business whose clients prepay and whose vendors bill later. It works out how much of the bank balance is really free to use at any month end, after client money held, vendor invoices, spend not yet invoiced, and the card balance. Eight controls, a three month forecast, and 24 built in checks sit on top.</p>
+        <div class="chips">
+          <span class="chip">Excel</span>
+          <span class="chip">Google Sheets</span>
+          <span class="chip">Working capital</span>
+          <span class="chip">Cash forecast</span>
+        </div>
+      </header>
+
+      <div class="build-showcase">
+        <div class="build-showcase-main">
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
+          <figure class="preview-figure">
+            <div class="app-frame">
+              <div class="app-frame__bar">
+                <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+              </div>
+              <div class="app-frame__body">
+                <img id="preview-img" src="assets/operational-finance-control/01-dashboard.webp" alt="Cash control tower dashboard with a month end picker, a dark panel showing available operating cash against the minimum reserve, a bridge from cash in bank to available cash, eight controls marked clear, watch, or act, a stacked chart of where the cash sat each month with the forecast months, and client money held by campaign" loading="eager" decoding="async">
+              </div>
+            </div>
+            <figcaption class="preview-caption" id="preview-caption">Dashboard · month end picker · available operating cash · cash bridge · eight controls · where the cash sits</figcaption>
+          </figure>
+
+          <div class="build-desc build-desc--under-preview">
+            <p>This build models a recruitment advertising agency. Clients prepay campaign budgets, the agency keeps a contracted margin, and the rest passes through to job board vendors such as Indeed and ZipRecruiter, who invoice weeks later or get charged to the company card. So the bank balance always looks better than the cash the business can actually use. Four inputs go in, one row per booking, client payment, vendor line, and expense, and every status, paid, on card, invoiced, or not yet invoiced, is worked out from the dates against the as of date.</p>
+            <p>The Dashboard leads with available operating cash: cash in bank less the client money held for work not yet delivered, vendor invoices to pay, spend delivered but not yet invoiced, the card balance, and unpaid expenses. A bridge shows each step down from the bank balance, and eight controls mark Clear, Watch, or Act, each with what it is based on: the minimum reserve, client money covered by cash, runway, operating margin, vendor invoices past the terms, invoices not yet received, the card balance, and clients behind on payment. A picker winds every figure on the page back to any month end, and a stacked chart shows where the cash sat each month, with the three forecast months after it.</p>
+            <p>Cash rebuilds the position at every month end, the cash flow behind it, and the vendor items still to pay, oldest first, each with what to do. Campaigns shows client money held and the true margin after card fees and overage spend, Vendors shows what is owed and how fast it gets paid, Monthly sets profit and loss beside cash, and Forecast runs three months from the open budgets, new bookings, and five drivers. A Checks tab runs 24 tests on every refresh, from reconciliations that must read zero, such as available cash equals opening cash plus operating income less what clients owe, to data quality counts and capacity warnings, and every failure says where to look.</p>
+            <p>Meridian Talent Acquisition is a fictional agency and every figure in this sample is illustrative. The year starts in January 2026 and the figures run through June, when $197,025 of the $399,452 in the bank is free to use. Set the as of date back and every view shows the business as it stood then.</p>
+          </div>
+        </div>
+        <aside class="build-rail" aria-label="Build details">
+          <section class="rail-block rail-platforms" id="rail-platforms" hidden>
+            <h2 class="rail-heading">Open this dashboard</h2>
+            <div class="platform-links" id="platform-links"></div>
+          </section>
+          <section class="rail-block rail-spec" aria-labelledby="spec-heading">
+            <h2 class="rail-heading" id="spec-heading">What is inside</h2>
+            <dl class="spec-card" id="spec-card"></dl>
+          </section>
+          <div class="rail-cta">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+            <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links" aria-label="External links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="build-nav.js"></script>
+<script src="platforms.js"></script>
+<script src="build-detail.js"></script>
+<script>
+  initBuildNav('operational-finance-control.html');
+  initDetailNavScroll();
+  initBuildDetail({
+    appLabel: 'Microsoft Excel',
+    views: [
+      { name: 'Dashboard', img: 'assets/operational-finance-control/01-dashboard.webp', caption: 'Dashboard · month end picker · available operating cash · cash bridge · eight controls · where the cash sits', alt: 'Cash control tower dashboard with a month end picker, a dark panel showing available operating cash against the minimum reserve, a bridge from cash in bank to available cash, eight controls marked clear, watch, or act, a stacked chart of where the cash sat each month with the forecast months, and client money held by campaign' },
+      { name: 'Start Here', img: 'assets/operational-finance-control/02-start-here.webp', caption: 'Start Here · status · at a glance · how the numbers work · monthly refresh · color key · Power Query', alt: 'Start Here tab with check status, the cash position at a glance, links to every tab, metric definitions, five refresh steps, a color key, and a Power Query script' },
+      { name: 'Cash', img: 'assets/operational-finance-control/03-cash.webp', caption: 'Cash · the position at every month end · cash flow · vendor items still to pay, oldest first, with what to do', alt: 'Cash tab with cash in bank, each set aside, and available cash at every month end, the monthly cash flow, and a list of vendor items still to pay with the days open and what to do about each' },
+      { name: 'Campaigns', img: 'assets/operational-finance-control/04-campaigns.webp', caption: 'Campaigns · client money held, margin, card fees, overage, and contribution · by client · contracted vs true margin', alt: 'Campaigns tab listing each campaign by budget with received, delivered, client money held, vendor cost, gross margin, card fees, overage, and contribution, a table by client, and a bar chart of gross margin against contribution' },
+      { name: 'Vendors', img: 'assets/operational-finance-control/05-vendors.webp', caption: 'Vendors · spend, paid, owed, past the terms, and days to pay · owed by stage', alt: 'Vendors tab with spend to date, paid, invoices to pay, the amount past the payment terms, spend not yet invoiced, card charges, and average days to pay for each vendor, with a stacked bar chart of what each is owed' },
+      { name: 'Monthly', img: 'assets/operational-finance-control/06-monthly.webp', caption: 'Monthly · profit and loss, cash, and the month end position · contribution vs operating expenses', alt: 'Monthly tab with revenue, vendor cost, gross margin, card fees, overage, contribution, operating expenses, and operating income by month, the cash flow, the month end position, and a column chart of contribution against operating expenses' },
+      { name: 'Forecast', img: 'assets/operational-finance-control/07-forecast.webp', caption: 'Forecast · drivers against the year to date · three months of delivery, cash, and position · available cash vs the reserve', alt: 'Forecast tab comparing each driver with the year to date, a three month build up of delivery, profit, cash, and position, and a line chart of available cash with the forecast against the minimum reserve' },
+      { name: 'Checks', img: 'assets/operational-finance-control/08-checks.webp', caption: 'Checks · 24 reconciliation, data quality, and capacity tests · each failure says where to look', alt: 'Checks tab listing 24 reconciliation, data quality, and capacity tests, all passing, with a fix for each' },
+      { name: 'Assumptions', img: 'assets/operational-finance-control/09-assumptions.webp', caption: 'Assumptions · as of date · opening cash · reserve · targets · forecast drivers · clients, vendors, and categories', alt: 'Assumptions tab with the company, fiscal year start, as of date, opening cash, card rate, reserve, targets, the forecast drivers, and the client, vendor, and expense category lists' },
+      { name: 'Fulfillment', img: 'assets/operational-finance-control/10-fulfillment.webp', caption: 'Fulfillment · vendor lines with invoice and payment dates · margin, revenue, and status worked out', alt: 'Fulfillment tab with pasted vendor lines in blue input cells and calculated margin, revenue, gross margin, status, days to pay, and days open to the right' }
+    ],
+    platforms: [
+      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQAI8BVPYvk-T5aL0d6ASd9JAfvZVc4LiBeMPygCXBTcw4w?e=ENJ3eN' },
+      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1PhS57s5irNJrePtBnZyYRDPLwdFKgQ5qWsiKPCOx81k/edit?usp=sharing' }
+    ],
+    whatsInside: [
+      { label: 'Tabs', value: '14: Start Here, seven views, and six settings, data, and engine tabs' },
+      { label: 'Dashboard', value: 'A month end picker, available operating cash, a cash bridge, eight controls, and client money held by campaign' },
+      { label: 'Headline', value: 'Available operating cash after client money held, vendor bills, the card balance, and unpaid expenses' },
+      { label: 'Forecast', value: 'Three months from open budgets, new bookings, and five drivers, against the minimum reserve' },
+      { label: 'Checks', value: '24 reconciliation, data quality, and capacity tests, each with a fix' },
+      { label: 'Inputs', value: 'Bookings, Receipts, Fulfillment, and OpEx, with every status worked out from the dates' },
+      { label: 'Note', value: 'Meridian Talent Acquisition is fictional. Every figure is illustrative.' }
+    ]
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>Job Costing and Profitability Tracker · Omari Timmerman</title>
+<meta name="description" content="An Excel and Google Sheets job costing workbook with a full WIP schedule, margin by job, receivables aging, a filtered dashboard, and 30 built in checks.">
+<link rel="canonical" href="https://timmermaninsight.com/job-costing.html">
+<meta property="og:url" content="https://timmermaninsight.com/job-costing.html">
+<meta property="og:title" content="Job Costing and Profitability Tracker · Omari Timmerman">
+<meta property="og:description" content="An Excel and Google Sheets job costing workbook with a full WIP schedule, margin by job, receivables aging, a filtered dashboard, and 30 built in checks.">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-page">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-lead">
+      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+      <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+      <div class="nav-build-switcher">
+        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
+        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="detail-hero">
+    <div class="wrap">
+      <div class="build-nav reveal">
+        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+        <div class="build-switcher">
+          <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
+          <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+        </div>
+      </div>
+
+      <header class="build-header reveal">
+        <span class="eyebrow">Sample build</span>
+        <h1>Job Costing and Profitability Tracker</h1>
+        <p class="summary">A fifteen tab Excel workbook, with a Google Sheets version, that turns job, invoice, and cost exports into a WIP schedule: percent complete, earned revenue, over and under billing, receivables, and projected margin for every job. A filtered dashboard, a job drill down, and 30 built in checks sit on top.</p>
+        <div class="chips">
+          <span class="chip">Excel</span>
+          <span class="chip">Google Sheets</span>
+          <span class="chip">WIP schedule</span>
+          <span class="chip">Job costing</span>
+        </div>
+      </header>
+
+      <div class="build-showcase">
+        <div class="build-showcase-main">
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
+          <figure class="preview-figure">
+            <div class="app-frame">
+              <div class="app-frame__bar">
+                <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+              </div>
+              <div class="app-frame__body">
+                <img id="preview-img" src="assets/job-costing/01-dashboard.webp" alt="Job costing dashboard with service line and state filters, six KPI tiles, a billed versus cost chart by month, a contract value doughnut, and a cash at stake table" loading="eager" decoding="async">
+              </div>
+            </div>
+            <figcaption class="preview-caption" id="preview-caption">Dashboard · service line and state filters · six KPI tiles · billed vs cost by month · cash at stake</figcaption>
+          </figure>
+
+          <div class="build-desc build-desc--under-preview">
+            <p>Three exports go in: the job list, invoice lines, and one cost feed that combines bills, purchase orders, expenses, and labor. Mapping tables send every vendor, item, and account to the right cost bucket and revenue category, so a new spelling in next month's export gets one new row instead of a broken formula. From there the workbook builds a WIP schedule on the cost to cost method, with percent complete, earned revenue, over and under billing, open and aged receivables, and projected margin for every job, plus an Action column that says what to do next: invoice, collect, or re-estimate.</p>
+            <p>The Dashboard filters by service line and state and leads with six tiles, each with a comparison rather than a bare number: projected margin against target, billed to date, earned but not invoiced, open receivables, jobs over estimate, and backlog to earn. Job Detail opens one job's budget by cost bucket, its month by month progress, and every cost and invoice line behind it. Profitability, Monthly, Cash and AR, and Cost Mix cover margin by service line, job size, and state, billing and collections by month, receivables aging with a chase list, and spend by vendor group and cost code.</p>
+            <p>A Checks tab runs 30 tests on every refresh: reconciliations that must read zero, data quality counts for unknown jobs, vendors, and accounts, coverage tests that every new item reaches the views, and capacity warnings before an input table fills up. Every failure says where to look. Start Here explains how each number is worked out, the five step monthly refresh, and an optional Power Query load. Every cell uses a named cell style, so inputs, formulas, links, and checks look the same on every tab.</p>
+            <p>Figures in this sample are real: contract, cost, invoice, and payment amounts come from a job costing export with client, property, vendor, and team names removed. The export carried no estimates, so each job's estimate defaults to the 60% target margin until a real one is typed in. The <a href="job-costing-deck.html">case study deck</a> walks through how the scattered accounting data became job level profit.</p>
+          </div>
+        </div>
+
+        <aside class="build-rail" aria-label="Build details">
+          <section class="rail-block rail-platforms" id="rail-platforms" hidden>
+            <h2 class="rail-heading">Open this dashboard</h2>
+            <div class="platform-links" id="platform-links"></div>
+          </section>
+          <section class="rail-block rail-spec" aria-labelledby="spec-heading">
+            <h2 class="rail-heading" id="spec-heading">What is inside</h2>
+            <dl class="spec-card" id="spec-card"></dl>
+          </section>
+          <div class="rail-cta">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+            <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links" aria-label="External links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="build-nav.js"></script>
+<script src="platforms.js"></script>
+<script src="build-detail.js"></script>
+<script>
+  initBuildNav('job-costing.html');
+  initDetailNavScroll();
+  initBuildDetail({
+    appLabel: 'Microsoft Excel',
+    views: [
+      { name: 'Dashboard', img: 'assets/job-costing/01-dashboard.webp', caption: 'Dashboard · service line and state filters · six KPI tiles · billed vs cost by month · cash at stake', alt: 'Job costing dashboard with service line and state filters, six KPI tiles, a billed versus cost chart by month, a contract value doughnut, and a cash at stake table' },
+      { name: 'Start Here', img: 'assets/job-costing/02-start-here.webp', caption: 'Start Here · status · how the numbers work · monthly refresh · color key · Power Query', alt: 'Start Here tab with check status, links to every tab, metric definitions, five refresh steps, a color key, and a Power Query script' },
+      { name: 'WIP Schedule', img: 'assets/job-costing/03-wip-schedule.webp', caption: 'WIP Schedule · all 62 jobs · percent complete, earned revenue, over and under billing, margin · next action', alt: 'WIP schedule listing 62 jobs with contract, estimate, cost, percent complete, earned revenue, billing, receivables, projected margin, and an action for each job' },
+      { name: 'Job Detail', img: 'assets/job-costing/04-job-detail.webp', caption: 'Job Detail · pick a job · budget vs actual by bucket · month by month · every cost and invoice line', alt: 'Job detail for one job with summary cards, budget versus actual by cost bucket, month by month progress with a chart, and its cost and invoice lines' },
+      { name: 'Profitability', img: 'assets/job-costing/05-profitability.webp', caption: 'Profitability · margin by service line, job size, and state · best and worst jobs', alt: 'Profitability tab with projected margin by service line, job size, and state, two margin charts, and lists of the most and least profitable jobs' },
+      { name: 'Monthly', img: 'assets/job-costing/06-monthly.webp', caption: 'Monthly · billing and collections · cost by bucket and source · labor hours · cumulative trend', alt: 'Monthly tab with billing, collections, cost by bucket and source, margin on billings, labor hours, and a cumulative billing, collections, and cost chart' },
+      { name: 'Cash & AR', img: 'assets/job-costing/07-cash-and-ar.webp', caption: 'Cash and AR · contract to cash · receivables aging · who to chase · what to invoice', alt: 'Cash and AR tab with contract to cash stages, receivables aging, the largest open balances, jobs ready to invoice, and billing by revenue category' },
+      { name: 'Cost Mix', img: 'assets/job-costing/08-cost-mix.webp', caption: 'Cost Mix · spend by cost bucket, source, vendor group, and cost code', alt: 'Cost mix tab with cost to date by bucket, source, vendor group, and cost code, each with a bar chart' },
+      { name: 'Checks', img: 'assets/job-costing/09-checks.webp', caption: 'Checks · 30 reconciliation, data quality, coverage, and capacity tests · each failure says where to look', alt: 'Checks tab listing 30 reconciliation, data quality, coverage, and capacity tests, all passing, with a fix for each' },
+      { name: 'Assumptions', img: 'assets/job-costing/10-assumptions.webp', caption: 'Assumptions · as of date · target and bid margins · estimate split · aging and size bands', alt: 'Assumptions tab with the reporting period, target margin, bid margins by service line, estimate split by cost bucket, labor rate, aging buckets, and job size bands' },
+      { name: 'Cost Ledger', img: 'assets/job-costing/11-cost-ledger.webp', caption: 'Cost Ledger · bills, purchase orders, expenses, and labor in one pasted feed · mapping to the right', alt: 'Cost ledger with pasted cost lines in blue input cells and calculated mapping columns to the right' },
+      { name: 'Mappings', img: 'assets/job-costing/12-mappings.webp', caption: 'Mappings · vendors, revenue items, accounts, sources, and months · one row per new name', alt: 'Mappings tab with clean up tables for vendors, revenue items, accounts, cost sources, and months' }
+    ],
+    platforms: [
+      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQD5TH1a4ua2QbyAsCsGEw1tAXPQicXXVHZVqlTETYrSavE?e=Z23Qoi' },
+      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1goYISWaI2lYepR77tNh50conufknNnsyrPPFOqFxgNE/edit?gid=900367110#gid=900367110' }
+    ],
+    whatsInside: [
+      { label: 'Tabs', value: '15: Start Here, eight views, and six settings, data, and engine tabs' },
+      { label: 'WIP', value: 'Percent complete, earned revenue, over and under billing, aged AR, margin, and a next action for every job' },
+      { label: 'Dashboard', value: 'Two filters, six KPI tiles, billed versus cost by month, and a cash at stake list' },
+      { label: 'Checks', value: '30 reconciliation, data quality, coverage, and capacity tests, each with a fix' },
+      { label: 'Inputs', value: 'Three pasted exports plus mapping tables for vendors, items, and accounts' },
+      { label: 'Note', value: 'Figures real, names removed. Estimates default to a 60% target margin.' }
+    ]
+  });
+</script>
+</body>
+</html>

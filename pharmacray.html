@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>PharmaCray Retail Pharmacy Analytics · Omari Timmerman</title>
+<meta name="description" content="A retail pharmacy scorecard in Excel and Google Sheets: twenty measures against their targets for any month, net margin after DIR by PBM, workflow and turnaround, inventory, star adherence, the patients to call, and 25 built in checks.">
+<link rel="canonical" href="https://timmermaninsight.com/pharmacray.html">
+<meta property="og:url" content="https://timmermaninsight.com/pharmacray.html">
+<meta property="og:title" content="PharmaCray Retail Pharmacy Analytics · Omari Timmerman">
+<meta property="og:description" content="A retail pharmacy scorecard in Excel and Google Sheets: twenty measures against their targets for any month, net margin after DIR by PBM, workflow and turnaround, inventory, star adherence, the patients to call, and 25 built in checks.">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-page">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-lead">
+      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+      <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+      <div class="nav-build-switcher">
+        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
+        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="detail-hero">
+    <div class="wrap">
+      <div class="build-nav reveal">
+        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+        <div class="build-switcher">
+          <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
+          <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+        </div>
+      </div>
+
+      <header class="build-header reveal">
+        <span class="eyebrow">Sample build</span>
+        <h1>PharmaCray Retail Pharmacy Analytics</h1>
+        <p class="summary">A fourteen tab Excel workbook, with a Google Sheets version, for an independent retail pharmacy. It scores twenty measures against their targets for any month, from net margin after DIR to star adherence, and shows what each PBM really pays, when the counter is busy, what to reorder, and which patients to call. 25 built in checks sit underneath.</p>
+        <div class="chips">
+          <span class="chip">Excel</span>
+          <span class="chip">Google Sheets</span>
+          <span class="chip">Pharmacy KPIs</span>
+          <span class="chip">DIR and reimbursement</span>
+        </div>
+      </header>
+
+      <div class="build-showcase">
+        <div class="build-showcase-main">
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
+          <figure class="preview-figure">
+            <div class="app-frame">
+              <div class="app-frame__bar">
+                <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+              </div>
+              <div class="app-frame__body">
+                <img id="preview-img" src="assets/pharmacray/01-scorecard.webp" alt="PharmaCray pharmacy scorecard preview" loading="eager" decoding="async">
+              </div>
+            </div>
+            <figcaption class="preview-caption" id="preview-caption">Scorecard · month picker · twenty measures in four panels · status, change on the month before, and trend</figcaption>
+          </figure>
+
+          <div class="build-desc build-desc--under-preview">
+            <p>PharmaCray models an independent retail pharmacy. Five inputs go in: claims from the pharmacy system, one row per script sent to a PBM, the daily till summary, timesheet hours, the stock count, and the monthly adherence report. Every claim's status, picked up, in the bin, returned to stock, or rejected, is worked out from its dates against the as of date, and a script counts as revenue only once it is picked up. Net margin then takes off the drug cost and the DIR each PBM claws back later.</p>
+            <p>The Scorecard puts twenty measures in four equal panels: reimbursement and margin, workflow and front store, inventory and purchasing, and patients and adherence. Each shows the month in view against its aim, a Clear, Watch, or Act status, the change on the month before in words, and a trend over the last 13 weeks, or over the last three adherence reports. A month picker drives every view, and a line at the top names what to act on first.</p>
+            <p>Reimbursement breaks the month down by PBM: revenue, drug cost, DIR, net margin a script, rejections, brand claims underwater after DIR, and what each PBM still owes, with a weekly chart of margin and DIR and the drugs that lost the most. Workflow shows scripts a pharmacist hour and turnaround by week, a heatmap of the busy hours, and front store sales by category. Inventory covers stock value and turns by class, dead stock, lines to reorder, and the preferred wholesaler. Adherence shows each star measure as the share of patients at a PDC of 80% or more, MedSync patients against the rest, how new patients start, and the patients to call, lowest PDC first.</p>
+            <p>A Checks tab runs 25 tests on every refresh, from reconciliations that must read zero, such as net margin by PBM against the month's net margin, to data quality counts like claims filled outside store hours, a PBM missing from Assumptions, or a day with fills and no labor row. PharmaCray Pharmacy is fictional and every figure is illustrative. The data runs from April to June 2026: in June, 12 of the 20 measures are clear, and brand claims underwater, turnaround, and statin adherence need action. Set the as of date back and every view shows the pharmacy as it stood then.</p>
+          </div>
+        </div>
+
+        <aside class="build-rail" aria-label="Build details">
+          <section class="rail-block rail-platforms" id="rail-platforms" hidden>
+            <h2 class="rail-heading">Open this dashboard</h2>
+            <div class="platform-links" id="platform-links"></div>
+          </section>
+          <section class="rail-block rail-spec" aria-labelledby="spec-heading">
+            <h2 class="rail-heading" id="spec-heading">What is inside</h2>
+            <dl class="spec-card" id="spec-card"></dl>
+          </section>
+          <div class="rail-cta">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+            <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links" aria-label="External links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="build-nav.js"></script>
+<script src="platforms.js"></script>
+<script src="build-detail.js"></script>
+<script>
+  initBuildNav('pharmacray.html');
+  initDetailNavScroll();
+  initBuildDetail({
+    appLabel: 'Microsoft Excel',
+    views: [
+      { name: 'Scorecard', img: 'assets/pharmacray/01-scorecard.webp', caption: 'Scorecard · month picker · twenty measures in four panels · status, change on the month before, and trend', alt: 'Pharmacy scorecard with a month picker, a verdict line, and four panels of five measures, each with its value, aim, a clear, watch, or act status, the change on the month before, and a trend line' },
+      { name: 'Start Here', img: 'assets/pharmacray/02-start-here.webp', caption: 'Start Here · status · at a glance · how the numbers work · monthly refresh · color key · Power Query', alt: 'Start Here tab with check status, the month at a glance, links to every tab, metric definitions, five refresh steps, a color key, and a Power Query script' },
+      { name: 'Reimbursement', img: 'assets/pharmacray/03-reimbursement.webp', caption: 'Reimbursement · five tiles · margin and DIR by week · underwater claims by PBM · PBM table · underwater drugs · month by month', alt: 'Reimbursement tab with tiles for net margin, DIR, underwater losses, rejections, and what PBMs owe, a weekly chart of net margin and DIR, a bar chart of underwater brand claims by PBM, a table by PBM, the drugs that lost the most, and a month by month summary' },
+      { name: 'Workflow', img: 'assets/pharmacray/04-workflow.webp', caption: 'Workflow · five tiles · turnaround against the aim · front store by category · busy hours heatmap · the 13 weeks', alt: 'Workflow tab with tiles for scripts, scripts a pharmacist hour, turnaround, front store sales, and basket, a weekly turnaround line against the aim, front store sales by category, a heatmap of scripts by weekday and hour, and a table of the last 13 weeks' },
+      { name: 'Inventory', img: 'assets/pharmacray/05-inventory.webp', caption: 'Inventory · five tiles · stock value by class · drug cost by wholesaler · reorder now · dead stock · stock by class', alt: 'Inventory tab with tiles for stock value, dead stock, lines to reorder, the preferred wholesaler, and partial fills, a bar chart of stock value by class, a doughnut of drug cost by wholesaler, the lines to reorder, dead stock, and a table by class with share bars' },
+      { name: 'Adherence', img: 'assets/pharmacray/06-adherence.webp', caption: 'Adherence · three star measures · each monthly report · MedSync against the rest · new patients · patients to call', alt: 'Adherence tab with tiles for the three star measures, return to stock, and new patients, a column chart of each monthly report, MedSync patients against the rest, new patients by month, and the patients to call, lowest PDC first' },
+      { name: 'Checks', img: 'assets/pharmacray/07-checks.webp', caption: 'Checks · 25 reconciliation, data quality, and capacity tests · each failure says where to look', alt: 'Checks tab listing 25 reconciliation, data quality, and capacity tests, all passing, with a fix for each and information lines' },
+      { name: 'Assumptions', img: 'assets/pharmacray/08-assumptions.webp', caption: 'Assumptions · as of date · rules · store hours · PBMs and DIR rates · twenty targets · lists', alt: 'Assumptions tab with the pharmacy, data start, as of date, rules, store hours, PBMs with DIR rates and days to pay, twenty targets with aims and act lines, and the wholesaler, star measure, and drug class lists' },
+      { name: 'Rx Claims', img: 'assets/pharmacray/09-rx-claims.webp', caption: 'Rx Claims · one row per claim · status, revenue, DIR, and net margin worked out from the dates', alt: 'Rx Claims tab with pasted claims in blue input cells and the status, month, week, 30 day equivalents, revenue, DIR, and net margin worked out to the right' },
+      { name: 'Patients', img: 'assets/pharmacray/10-patients.webp', caption: 'Patients · the monthly adherence report · PDC at each month end · first fills · patients to call', alt: 'Patients tab with each patient\'s star measure, MedSync flag, and PDC at each month end, with the PDC in view, adherence, new patients, first fills, and call order worked out' }
+    ],
+    platforms: [
+      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQCxAD5aP4iQTbg2B25w-0dKAfgwJjo3l29uqLge8FACZrY?e=hTgnpP' },
+      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1lwxk-sxTGeKPxvS0Jra8Nag_XK0NT25g7peSmSUxCt8/edit?usp=sharing' }
+    ],
+    whatsInside: [
+      { label: 'Tabs', value: '14: Start Here, five views, Checks, Assumptions, and six data and engine tabs' },
+      { label: 'Scorecard', value: 'Twenty measures in four panels for any month, each with its aim, status, change, and trend' },
+      { label: 'Headline', value: 'Net margin after DIR, counted on scripts picked up only, by PBM and by drug' },
+      { label: 'Patients', value: 'Star adherence as the share of patients at a PDC of 80% or more, and the patients to call' },
+      { label: 'Checks', value: '25 reconciliation, data quality, and capacity tests, each with a fix' },
+      { label: 'Inputs', value: 'Rx Claims, Front Store, Labor, Stock, and Patients, with every claim status worked out from the dates' },
+      { label: 'Note', value: 'PharmaCray Pharmacy is fictional. Every figure is illustrative.' }
+    ]
+  });
+</script>
+</body>
+</html>

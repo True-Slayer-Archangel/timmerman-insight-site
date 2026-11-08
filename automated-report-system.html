@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>Automated Monthly Report System · Omari Timmerman</title>
+<meta name="description" content="A Google Sheets monthly revenue report, with an Excel version, built on a Config tab, SUMIFS calculations, named ranges, and a scheduled Apps Script that emails the finished report each month.">
+<link rel="canonical" href="https://timmermaninsight.com/automated-report-system.html">
+<meta property="og:url" content="https://timmermaninsight.com/automated-report-system.html">
+<meta property="og:title" content="Automated Monthly Report System · Omari Timmerman">
+<meta property="og:description" content="A Google Sheets monthly revenue report, with an Excel version, built on a Config tab, SUMIFS calculations, named ranges, and a scheduled Apps Script that emails the finished report each month.">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-page">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-lead">
+      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+      <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+      <div class="nav-build-switcher">
+        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
+        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="detail-hero">
+    <div class="wrap">
+      <div class="build-nav reveal">
+        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+        <div class="build-switcher">
+          <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
+          <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+        </div>
+      </div>
+
+      <header class="build-header reveal">
+        <span class="eyebrow">Sample build</span>
+        <h1>Automated Monthly Report System</h1>
+        <p class="summary">A monthly revenue report that maintains itself. The Config tab is the single control panel: company name, report title, reporting month, revenue target, variance threshold, and the email recipient list. Change any of those in one place and the report updates.</p>
+        <div class="chips">
+          <span class="chip">Google Sheets</span>
+          <span class="chip">Google Apps Script</span>
+          <span class="chip">Scheduled email</span>
+          <span class="chip">Excel</span>
+          <span class="chip">SUMIFS</span>
+        </div>
+      </header>
+
+      <div class="build-showcase">
+        <div class="build-showcase-main">
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
+          <figure class="preview-figure">
+            <div class="app-frame">
+              <div class="app-frame__bar">
+                <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+              </div>
+              <div class="app-frame__body">
+                <img id="preview-img" src="assets/automated-report-dashboard.webp" alt="Automated Monthly Report System dashboard preview">
+              </div>
+            </div>
+            <figcaption class="preview-caption" id="preview-caption">Dashboard · KPI cards · revenue by region · highlights</figcaption>
+          </figure>
+
+          <div class="build-desc build-desc--under-preview">
+            <p>Raw transactions sit on a separate tab. A calculation zone uses SUMIFS with EOMONTH and EDATE to build the current period and the prior period automatically, so moving the reporting month forward recomputes every comparison. The Dashboard reads named ranges rather than cell addresses, so the layout stays stable as the data grows.</p>
+            <p>The same named ranges feed a scheduled Google Apps Script that emails the finished report to the recipient list on a set day each month. The send schedule is set from a menu inside the spreadsheet, so changing the timing or the recipients needs no code editing. An Excel version carries the same report and Config tab for teams on Microsoft 365.</p>
+            <p>KPI cards cover total revenue, percent to target, month over month growth, and top region. A revenue by region table shows current, prior, and MoM columns. A highlights panel calls out top region, top rep, top product, and fastest mover.</p>
+          </div>
+        </div>
+
+        <aside class="build-rail" aria-label="Build details">
+          <section class="rail-block rail-platforms" id="rail-platforms" hidden>
+            <h2 class="rail-heading">Open this dashboard</h2>
+            <div class="platform-links" id="platform-links"></div>
+          </section>
+          <section class="rail-block rail-spec" aria-labelledby="spec-heading">
+            <h2 class="rail-heading" id="spec-heading">What is inside</h2>
+            <dl class="spec-card" id="spec-card"></dl>
+          </section>
+          <div class="rail-cta">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+            <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links" aria-label="External links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="build-nav.js"></script>
+<script src="platforms.js"></script>
+<script src="build-detail.js"></script>
+<script>
+  initBuildNav('automated-report-system.html');
+  initDetailNavScroll();
+  initBuildDetail({
+    appLabel: 'Google Sheets',
+    views: [
+      { name: 'Dashboard', img: 'assets/automated-report-dashboard.webp', caption: 'Dashboard · KPI cards · revenue by region · highlights' },
+      { name: 'Config', img: 'assets/automated-report-config.webp', caption: 'Config tab · company, title, target, recipients' },
+      { name: 'Calculations', img: 'assets/automated-report-calculations.webp', caption: 'Working calculations · SUMIFS rollups · period logic' }
+    ],
+    platforms: [
+      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQBfSjKp0BoWTpPI9IkE-lTEAdMqYbgZwLl21t3xRH1dpAY?e=HmmuJe' },
+      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1GSbgQSlmsRjyD2tN9tFNcH7rmEa_6lgFAshv9fV-VTU/edit?usp=sharing' },
+      { name: 'Power BI',      url: '' },
+      { name: 'Looker',        url: '' }
+    ],
+    whatsInside: [
+      { label: 'Tabs',         value: 'Config, Transactions, Dashboard' },
+      { label: 'Calculations', value: 'SUMIFS with EOMONTH and EDATE for current and prior periods' },
+      { label: 'Automation',   value: 'Scheduled email via spreadsheet menu' },
+      { label: 'Dashboard',    value: 'KPI cards, region table, highlights panel' }
+    ]
+  });
+</script>
+</body>
+</html>

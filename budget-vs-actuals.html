@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>Budget vs Actuals Tracker · Omari Timmerman</title>
+<meta name="description" content="An Excel and Google Sheets budget vs actuals workbook: spend against plan for every department and category, a full year outlook, a filtered dashboard, and 26 built in checks.">
+<link rel="canonical" href="https://timmermaninsight.com/budget-vs-actuals.html">
+<meta property="og:url" content="https://timmermaninsight.com/budget-vs-actuals.html">
+<meta property="og:title" content="Budget vs Actuals Tracker · Omari Timmerman">
+<meta property="og:description" content="An Excel and Google Sheets budget vs actuals workbook: spend against plan for every department and category, a full year outlook, a filtered dashboard, and 26 built in checks.">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="detail-page">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-lead">
+      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+      <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+      <div class="nav-build-switcher">
+        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
+        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="detail-hero">
+    <div class="wrap">
+      <div class="build-nav reveal">
+        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+        <div class="build-switcher">
+          <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
+          <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
+        </div>
+      </div>
+
+      <header class="build-header reveal">
+        <span class="eyebrow">Sample build</span>
+        <h1>Budget vs Actuals Tracker</h1>
+        <p class="summary">An eleven tab Excel workbook, with a Google Sheets version, that turns a budget export and a raw GL export into spend against plan for every department and category: budget to date, actual spend, the gap in dollars and percent, a full year outlook, and the budget left to spend. A filtered dashboard, a department drill down, and 26 built in checks sit on top.</p>
+        <div class="chips">
+          <span class="chip">Excel</span>
+          <span class="chip">Google Sheets</span>
+          <span class="chip">Budget vs actuals</span>
+          <span class="chip">Full year outlook</span>
+        </div>
+      </header>
+
+      <div class="build-showcase">
+        <div class="build-showcase-main">
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
+          <figure class="preview-figure">
+            <div class="app-frame">
+              <div class="app-frame__bar">
+                <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+              </div>
+              <div class="app-frame__body">
+                <img id="preview-img" src="assets/budget-vs-actuals/01-dashboard.webp" alt="Budget vs actuals dashboard with department and category filters, four KPI tiles, a cumulative plan versus actual line with the full year outlook, the gap by department, and the ten budget lines furthest from plan, each with a gap bar and a month by month strip" loading="eager" decoding="async">
+              </div>
+            </div>
+            <figcaption class="preview-caption" id="preview-caption">Dashboard · department and category filters · four KPI tiles · cumulative plan vs actual with the outlook · ten biggest variances</figcaption>
+          </figure>
+
+          <div class="build-desc build-desc--under-preview">
+            <p>Two exports go in: the budget, one row per department and category with twelve monthly amounts, and the GL detail, one row per transaction. A Mappings table sends every GL account to its budget category, so a new account in next month's export gets one new row instead of a broken formula. From there the workbook works out, for every department and category, the budget to date, actual spend, the gap in dollars and percent, a status against an on plan band you set, a full year outlook, and the budget left to spend.</p>
+            <p>The Dashboard filters by department and category and leads with four tiles, each with a comparison rather than a bare number: the gap to the budget to date, spend against the share of the year gone, the full year outlook against the full year budget, and budget left per month against plan. Below them, a cumulative line tracks spend against plan and projects the rest of the year, a bar chart ranks departments from most over to most under, and the ten lines furthest from plan each carry a gap bar and a strip showing which months ran over. Variance lays out every department and category with in cell gap bars and a department by category heatmap, Monthly maps the gap month by month, and Department Detail opens one department's categories, cumulative spend, and largest GL lines.</p>
+            <p>A Checks tab runs 26 tests on every refresh: reconciliations that must read zero, data quality counts for unknown departments, unmapped accounts, duplicate IDs, and spend with no budget line, coverage tests that every new department and category reaches the views, and capacity warnings before an input table fills up. Every failure says where to look. Start Here explains how each number is worked out, the five step monthly refresh, and an optional Power Query load. Every cell uses a named cell style, so inputs, formulas, links, and checks look the same on every tab.</p>
+            <p>Northwind Industries is a fictional company and every figure in this sample is illustrative. The plan runs January to December 2026 and the actuals run through June, so the outlook and the budget left show how the second half is shaping up. Set the as of date back and every view shows the year as it stood then.</p>
+          </div>
+        </div>
+
+        <aside class="build-rail" aria-label="Build details">
+          <section class="rail-block rail-platforms" id="rail-platforms" hidden>
+            <h2 class="rail-heading">Open this dashboard</h2>
+            <div class="platform-links" id="platform-links"></div>
+          </section>
+          <section class="rail-block rail-spec" aria-labelledby="spec-heading">
+            <h2 class="rail-heading" id="spec-heading">What is inside</h2>
+            <dl class="spec-card" id="spec-card"></dl>
+          </section>
+          <div class="rail-cta">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+            <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links" aria-label="External links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="build-nav.js"></script>
+<script src="platforms.js"></script>
+<script src="build-detail.js"></script>
+<script>
+  initBuildNav('budget-vs-actuals.html');
+  initDetailNavScroll();
+  initBuildDetail({
+    appLabel: 'Microsoft Excel',
+    views: [
+      { name: 'Dashboard', img: 'assets/budget-vs-actuals/01-dashboard.webp', caption: 'Dashboard · department and category filters · four KPI tiles · cumulative plan vs actual with the outlook · ten biggest variances', alt: 'Budget vs actuals dashboard with department and category filters, four KPI tiles, a cumulative plan versus actual line with the full year outlook, the gap by department, and the ten budget lines furthest from plan, each with a gap bar and a month by month strip' },
+      { name: 'Start Here', img: 'assets/budget-vs-actuals/02-start-here.webp', caption: 'Start Here · status · how the numbers work · monthly refresh · color key · Power Query', alt: 'Start Here tab with check status, figures at a glance, links to every tab, metric definitions, five refresh steps, a color key, and a Power Query script' },
+      { name: 'Variance', img: 'assets/budget-vs-actuals/03-variance.webp', caption: 'Variance · every department and category · in cell gap bars · to date and full year · department by category heatmap', alt: 'Variance tab with budget to date, spend, the gap in dollars with a bar and in percent, status, full year outlook, and budget left for each department and category, plus a department by category heatmap' },
+      { name: 'Monthly', img: 'assets/budget-vs-actuals/04-monthly.webp', caption: 'Monthly · budget vs actual by month · heatmaps by department and category · running total', alt: 'Monthly tab with budget, actual, and the gap for each month, heatmaps of the monthly gap by department and by category, and a chart of the monthly gap with its running total' },
+      { name: 'Department Detail', img: 'assets/budget-vs-actuals/05-department-detail.webp', caption: 'Department Detail · pick a department · gap by category · cumulative plan vs actual · largest GL lines', alt: 'Department detail for Marketing with summary cards, the gap by category with a bar chart, month by month figures, a cumulative plan versus actual line with the outlook, and its fifteen largest GL lines' },
+      { name: 'Checks', img: 'assets/budget-vs-actuals/06-checks.webp', caption: 'Checks · 26 reconciliation, data quality, coverage, and capacity tests · each failure says where to look', alt: 'Checks tab listing 26 reconciliation, data quality, coverage, and capacity tests, all passing, with a fix for each' },
+      { name: 'Assumptions', img: 'assets/budget-vs-actuals/07-assumptions.webp', caption: 'Assumptions · as of date · on plan band · outlook method · departments and categories', alt: 'Assumptions tab with the company, fiscal year start, as of date, on plan band, outlook method, and the department and category lists' },
+      { name: 'Budget', img: 'assets/budget-vs-actuals/08-budget.webp', caption: 'Budget · one row per department and category · twelve months · full year and to date worked out', alt: 'Budget tab with one row per department and category, monthly amounts in blue input cells, and calculated full year and to date columns' },
+      { name: 'GL Data', img: 'assets/budget-vs-actuals/09-gl-data.webp', caption: 'GL Data · one pasted export · month, category, and warnings worked out to the right', alt: 'GL data tab with pasted transaction lines in blue input cells and calculated month, category, and warning columns to the right' },
+      { name: 'Mappings', img: 'assets/budget-vs-actuals/10-mappings.webp', caption: 'Mappings · GL accounts to budget categories · one row per new account', alt: 'Mappings tab listing each GL account with its budget category, line count, and spend to date' }
+    ],
+    platforms: [
+      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQDy8lajuKijS5WuKiRW1QTdAU_-oX8yI5_GicpNQ2Pmlk4?e=QoyErm' },
+      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1oXA8rxy1yjqkezA0hbiuAvDL1V9no4Jk4aESEDUXdHw/edit?usp=sharing' }
+    ],
+    whatsInside: [
+      { label: 'Tabs', value: '11: Start Here, five views, and five settings, data, and engine tabs' },
+      { label: 'Variance', value: 'Budget to date, actual, the gap in dollars and percent, status, full year outlook, and budget left for every department and category' },
+      { label: 'Dashboard', value: 'Two filters, four KPI tiles, cumulative plan vs actual with the outlook, and the ten biggest variances' },
+      { label: 'Checks', value: '26 reconciliation, data quality, coverage, and capacity tests, each with a fix' },
+      { label: 'Inputs', value: 'Two pasted exports, the budget and the GL detail, plus a mapping table for accounts' },
+      { label: 'Note', value: 'Northwind Industries is fictional. Every figure is illustrative.' }
+    ]
+  });
+</script>
+</body>
+</html>

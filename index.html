@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = localStorage.getItem('theme');
+  var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<title>Omari Timmerman · FP&A Dashboards &amp; Spreadsheet Automation</title>
+<meta name="description" content="I build automated Excel and Google Sheets tools for finance teams and founders. FP&A dashboards, financial models, and variance reporting that stay accurate and update on their own. Top Rated Plus, 100+ projects.">
+<link rel="canonical" href="https://timmermaninsight.com/">
+<meta property="og:url" content="https://timmermaninsight.com/">
+<meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Omari Timmerman · FP&A Dashboards &amp; Spreadsheet Automation">
+<meta property="og:description" content="Automated Excel and Google Sheets tools for finance teams and founders. Dashboards, models, and variance reporting that run themselves.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334C29E'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EOT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="work.html">All work</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">FP&amp;A · Spreadsheet Automation · Dashboards</span>
+      <h1>Financial dashboards and spreadsheet systems that <span class="hl">run themselves</span>.</h1>
+      <p class="hero-sub">I help finance teams and founders replace manual reporting with automated Excel and Google Sheets tools. Dashboards, financial models, and variance reporting that stay accurate, every cycle.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.9 average rating</span>
+        <span class="dot"></span>
+        <span>Top Rated Plus on Upwork</span>
+      </div>
+    </div>
+
+    <div class="hero-vis">
+      <div class="panel" id="heroPanel">
+        <div class="panel-top">
+          <span class="panel-title">Budget vs Actual</span>
+          <span class="tag">Sample build</span>
+        </div>
+        <div class="panel-cap">Q3 · variance view · auto refresh</div>
+
+        <div class="row">
+          <span class="row-label">Revenue</span>
+          <span class="track"><span class="fill" data-w="86%"></span></span>
+          <span class="delta pos">&#9650; 6%</span>
+        </div>
+        <div class="row">
+          <span class="row-label">Gross&nbsp;margin</span>
+          <span class="track"><span class="fill" data-w="72%"></span></span>
+          <span class="delta pos">&#9650; 2pp</span>
+        </div>
+        <div class="row">
+          <span class="row-label">Opex</span>
+          <span class="track"><span class="fill warn" data-w="58%"></span></span>
+          <span class="delta warn">&#9650; 3%</span>
+        </div>
+        <div class="row">
+          <span class="row-label">Net&nbsp;income</span>
+          <span class="track"><span class="fill" data-w="64%"></span></span>
+          <span class="delta pos">&#9650; 9%</span>
+        </div>
+
+        <div class="panel-foot">
+          <span class="label">12 month trend</span>
+          <svg class="spark" width="118" height="30" viewBox="0 0 118 30" fill="none" aria-hidden="true">
+            <polyline points="2,24 14,21 26,22 38,16 50,18 62,12 74,13 86,8 98,9 116,3"
+              stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="116" cy="3" r="3" fill="var(--brand)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Track record">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num"><span class="count" data-target="100" data-suffix="+">100+</span></div>
+        <div class="lab">Projects delivered</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="count" data-target="4.9" data-decimals="1">4.9</span></div>
+        <div class="lab">Average client rating</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="count" data-target="93" data-suffix="%">93%</span></div>
+        <div class="lab">Job Success Score</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num num-status"><span class="status-badge">Top Rated Plus</span></div>
+        <div class="lab">Upwork status</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deckcta">
+  <a class="deckcta__card" href="capabilities.html" aria-label="Open the capabilities deck">
+    <div class="deckcta__body">
+      <p class="deckcta__eyebrow">The deck</p>
+      <h2 class="deckcta__title">View the capabilities deck</h2>
+      <p class="deckcta__text">Twenty slides on dashboards, models, and automation, in the same brand and to the same standard as this site.</p>
+      <div class="deckcta__meta">
+        <span class="deckcta__chip">20 slides</span>
+        <span class="deckcta__chip">Live charts</span>
+        <span class="deckcta__chip">Saves as PDF</span>
+      </div>
+      <span class="deckcta__btn">Open deck
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+    <div class="deckcta__preview" aria-hidden="true">
+      <span class="deckcta__edge deckcta__edge--2"></span>
+      <span class="deckcta__edge deckcta__edge--1"></span>
+      <div class="deckcta__slide">
+        <div class="deckcta__fx"><i>fx</i><span>=TIMMERMAN_INSIGHT("FP&amp;A", "automation")</span></div>
+        <div class="deckcta__wm">Timmerman Insight</div>
+        <svg class="deckcta__chart" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dashboard preview">
+          <text x="10" y="20" fill="var(--deck-chart-label)" font-family="monospace" font-size="9" letter-spacing="1">FY2026 OPEX</text>
+          <rect x="222" y="8" width="66" height="22" rx="11" fill="var(--deck-teal-soft)"></rect>
+          <text x="255" y="23" text-anchor="middle" fill="var(--deck-teal)" font-family="monospace" font-size="11" font-weight="600">+1.4%</text>
+          <line x1="24" y1="80" x2="286" y2="80" stroke="var(--deck-line-faint)"></line>
+          <line x1="24" y1="110" x2="286" y2="110" stroke="var(--deck-line-faint)"></line>
+          <rect x="30" y="90" width="16" height="40" rx="2" fill="var(--deck-chart-bar)"></rect>
+          <rect x="50" y="80" width="16" height="50" rx="2" fill="var(--deck-teal)"></rect>
+          <rect x="82" y="76" width="16" height="54" rx="2" fill="var(--deck-chart-bar)"></rect>
+          <rect x="102" y="84" width="16" height="46" rx="2" fill="var(--deck-teal)"></rect>
+          <rect x="134" y="60" width="16" height="70" rx="2" fill="var(--deck-chart-bar)"></rect>
+          <rect x="154" y="52" width="16" height="78" rx="2" fill="var(--deck-teal)"></rect>
+          <rect x="186" y="72" width="16" height="58" rx="2" fill="var(--deck-chart-bar)"></rect>
+          <rect x="206" y="76" width="16" height="54" rx="2" fill="var(--deck-teal)"></rect>
+          <rect x="238" y="96" width="16" height="34" rx="2" fill="var(--deck-chart-bar)"></rect>
+          <rect x="258" y="88" width="16" height="42" rx="2" fill="var(--deck-teal)"></rect>
+          <line x1="24" y1="130" x2="286" y2="130" stroke="var(--deck-line)"></line>
+        </svg>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What I build</span>
+      <h2>Tools that take the manual work off your plate.</h2>
+      <p>Every build is designed around your real data and how your team actually operates, not a rigid template you have to bend to fit.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 13h4v8H3zM10 7h4v14h-4zM17 3h4v18h-4z"/></svg></div>
+        <h3>FP&amp;A Dashboards</h3>
+        <p>Live KPI and financial dashboards that pull from your data and update automatically. Variance views, trends, and clean visuals stakeholders actually read.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></div>
+        <h3>Excel &amp; Sheets Automation</h3>
+        <p>Power Query, VBA, and Google Apps Script that remove repetitive work. Reports that refresh on a click instead of an afternoon of copy and paste.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11M14 4v16"/></svg></div>
+        <h3>Financial Models</h3>
+        <p>Three statement models, SaaS forecasts, and scenario analysis. Clean, auditable, and easy to update as your assumptions change.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 12l4-4 4 3 7-7M21 7v5h-5M3 21h18"/></svg></div>
+        <h3>Budget vs Actuals</h3>
+        <p>Variance trackers that flag overspend automatically, so you see what is off plan the moment the numbers land, not at month end.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 5 5.5.8-4 3.9 1 5.5L12 20l-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></div>
+        <h3>Excel Apps &amp; Custom Tools</h3>
+        <p>Workbooks that run like software: menus, forms, and buttons your team clicks instead of formulas they edit. Quotes, invoices, CRMs, schedulers, and trackers.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v4l3 2"/></svg></div>
+        <h3>AI Assisted Finance Tools</h3>
+        <p>Spreadsheets connected to AI for drafting, categorizing, and summarizing inside the sheet. A practical edge, built on tools I have shipped.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Sample work</span>
+      <h2>A look at the kind of builds I deliver.</h2>
+      <p>A selection from my Project Catalog and client work, anonymized where needed. Each one is a working file, tested against real data before delivery.</p>
+    </div>
+    <div class="work-grid" id="featured-work"></div>
+    <div class="reveal" style="margin-top:28px;text-align:center">
+      <a class="btn btn-ghost" href="work.html">View all work <span class="btn-arrow">&rarr;</span></a>
+    </div>
+    <div class="work-cta reveal">
+      <p>Want something like this built around your own numbers?</p>
+      <div class="cta-pair">
+        <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How I work</span>
+      <h2>A clear path from messy data to a tool you trust.</h2>
+      <p>You always know the scope, the timeline, and the price before any work begins.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="idx">01</div>
+        <h4>Initial Consultation</h4>
+        <p>We start with your data and your goal. I learn how you work, what is breaking, and what good looks like for you.</p>
+      </div>
+      <div class="step reveal">
+        <div class="idx">02</div>
+        <h4>Plan &amp; Proposal</h4>
+        <p>You get a clear scope, timeline, and fixed price up front. No surprises and no scope creep.</p>
+      </div>
+      <div class="step reveal">
+        <div class="idx">03</div>
+        <h4>Data &amp; Transformation</h4>
+        <p>I clean, structure, and connect your data so it is reliable and ready to automate.</p>
+      </div>
+      <div class="step reveal">
+        <div class="idx">04</div>
+        <h4>Build &amp; Test</h4>
+        <p>I build the dashboards, models, or tools and test them against your real data for accuracy.</p>
+      </div>
+      <div class="step reveal">
+        <div class="idx">05</div>
+        <h4>Delivery &amp; Review</h4>
+        <p>You get the finished build, a walkthrough, and support so you can run it confidently on your own.</p>
+      </div>
+    </div>
+    <div class="process-tag reveal">Transforming raw data into insights, <span>one step at a time.</span></div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="stack">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Tools I work in</span>
+      <h2>The stack behind every build.</h2>
+    </div>
+    <div class="stack-row reveal">
+      <span class="tool"><b></b>Microsoft Excel</span>
+      <span class="tool"><b></b>Google Sheets</span>
+      <span class="tool"><b></b>Power Query</span>
+      <span class="tool"><b></b>VBA</span>
+      <span class="tool"><b></b>Google Apps Script</span>
+      <span class="tool"><b></b>Power Automate</span>
+      <span class="tool"><b></b>Power BI</span>
+      <span class="tool"><b></b>Looker Studio</span>
+      <span class="tool"><b></b>SQL</span>
+      <span class="tool"><b></b>Python</span>
+      <span class="tool"><b></b>DAX</span>
+      <span class="tool"><b></b>SharePoint</span>
+      <span class="tool"><b></b>Claude API</span>
+      <span class="tool"><b></b>OpenAI API</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Client words</span>
+      <h2>What it is like to work with me.</h2>
+    </div>
+    <div class="tst-carousel reveal">
+      <button type="button" class="tst-nav tst-prev" aria-label="Previous testimonials">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="tst-viewport" id="tst-viewport">
+        <div class="tst-track" id="tst-track">
+          <div class="tst">
+            <p class="q">Omari was exceptional on collaborating on this project. He was able to organize and create systems to organize data. He is very knowledgeable and very professional. He always made himself available for any questions, and also met deadlines. I would work with Omari again.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Data systems project</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Highly recommended. Delivered everything needed way before the deadline. He knew what I needed better than I knew.</p>
+            <div class="by"><span class="av">LG</span><div><div class="nm">Laurie G.</div><div class="role">Upwork client</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari did a great job. We had to navigate quite a bit of data, and he helped us optimize it really well. He was patient as we determined what was best for our data inputs and helped guide us to create good data visuals for the feedback loop we wanted. We will continue using him as we continue projects like this.</p>
+            <div class="by"><span class="av">RW</span><div><div class="nm">Ryan Walker</div><div class="role">Upwork client</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was wonderful to work with. Would hire him again.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Excel spreadsheet with data analytics</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">A+ Service</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Updating spreadsheet</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari provided the best experience I have ever had on Upwork. He was a ninja when it came to the technical stuff. He listened carefully to exactly what I needed and delivered beyond expectations.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Custom Excel documents</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was fantastic and had a genuine understanding of a rather complex job. We had several iterations and Omari was pleasant and engaging throughout the sometimes arduous process! Highly recommend!</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Bond ladder charts · Excel / Power BI</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Needed something quickly, great communication and execution!</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Excel XLOOKUP</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was tasked with a difficult project. He was responsive, professional, and added value at every step. I would highly recommend him.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Book sales tracking spreadsheet</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Quality work, very timely patient and professional! Will most certainly hire again in the near future.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">30 minute consultation</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was fantastic to work with! He frequently checked in with me, responded quickly, communicated and worked well with my feedback and suggestions, and was patient with me and willing to work on my time frames. He provided a better end product than what I initially hoped for!</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Excel formulas · pharmacy business</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was fantastic to work with. I was busy and scattered but he was communicative, clear, and kept the project moving along. He quickly understood what I was looking for and worked within the guidance I gave, and was very professional in helping appropriately scope the work for my budget. Also great at data visualization. Would absolutely hire again.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Metrics dashboard · retail store</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was extremely responsive, professional and helpful. He has worked really hard on my project and produced work very quickly, which was great.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Retention and bonus structure</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was a true professional throughout the entire project. Highly recommend.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Excel sheet update and automation</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Excellent work. Very happy to assist with changes. Prompt and professional.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Google Sheets multi sheet integration</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Omari was great to work with. He's smart and understood what I needed.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Budget template</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">I had a great experience working with Omari on an Excel project. He quickly understood what I needed, delivered exactly what I asked for, and was professional and easy to communicate with throughout. If you're looking for someone skilled in Excel, I highly recommend working with him. I'll definitely be reaching out to Omari again for future projects!</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Labor efficiency project</div></div></div>
+          </div>
+          <div class="tst">
+            <p class="q">Stayed up with me most of the night working an investor profit map. Kudos to Omari for his dedication to the success of our organization.</p>
+            <div class="by"><span class="av">UC</span><div><div class="nm">Verified Upwork client</div><div class="role">Financial model development</div></div></div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="tst-nav tst-next" aria-label="Next testimonials">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <p class="tst-counter-wrap reveal"><span class="tst-counter" id="tst-counter">1 / 1</span></p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-inner">
+    <div class="about-photo reveal">
+      <div class="photo-frame"><img src="assets/omari-photo.webp" alt="Omari Timmerman, FP&amp;A and spreadsheet automation specialist" width="456" height="381" loading="lazy"></div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">About</span>
+      <h2>I make financial data work harder, with less manual effort.</h2>
+      <p>I am Omari Timmerman, a Top Rated Plus freelancer focused on one thing: building the dashboards, models, and automated spreadsheets that finance teams and founders rely on to make decisions.</p>
+      <p>Across more than a hundred projects I have worked deep in Excel and Google Sheets, with Power Query, VBA, and Apps Script under the hood. I am a specialist, not a generalist, and that focus is why the work holds up under pressure.</p>
+      <div class="about-facts">
+        <span class="fact"><b>Top Rated Plus</b>Upwork status</span>
+        <span class="fact"><b>100+ projects</b>delivered</span>
+        <span class="fact"><b>4.9 / 5</b>average rating</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div class="cgrid"></div>
+      <div class="inner">
+        <h2>Have numbers that should be working harder?</h2>
+        <p>Tell me what is slowing you down and I will show you how to automate it. Most projects start with a short conversation.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+          <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Work directly</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+        <p class="cta-note">Upwork for escrow protected hiring. Work directly for repeat or off platform projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <div class="foot-brand"><span class="mark mark--foot">OT</span> Omari Timmerman</div>
+      <div class="foot-meta" style="margin-top:8px">FP&amp;A &amp; Spreadsheet Automation</div>
+    </div>
+    <nav class="foot-links">
+      <a href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.linkedin.com/in/omari-timmerman-9a36b9190" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:Omari@timmermaninsight.com">Email</a>
+    </nav>
+    <div class="foot-meta">&copy; 2026 Omari Timmerman</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="works.js"></script>
+<script src="works-render.js"></script>
+<script src="testimonials.js"></script>
+<script>
+  renderFeaturedWorks(document.getElementById('featured-work'));
+  initTestimonialCarousel();
+
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 8){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+  }, {passive:true});
+
+  initReveal(document);
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function runCount(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.textContent = target.toFixed(dec) + suffix; return; }
+    var start = null, dur = 1300;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(dec) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  var counts = document.querySelectorAll('.count');
+  if('IntersectionObserver' in window){
+    // The real numbers ship in the HTML (for previews, crawlers and no-JS);
+    // they reset to zero only when the count-up animation is going to run.
+    if(!reduce){
+      counts.forEach(function(el){
+        var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        el.textContent = (0).toFixed(dec) + (el.getAttribute('data-suffix') || '');
+      });
+    }
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ runCount(e.target); io2.unobserve(e.target); } });
+    }, {threshold:.5});
+    counts.forEach(function(el){ io2.observe(el); });
+  } else {
+    counts.forEach(runCount);
+  }
+
+  // hero panel bars fill when visible
+  var panel = document.getElementById('heroPanel');
+  function fillBars(){ panel.querySelectorAll('.fill').forEach(function(f){ f.style.width = f.getAttribute('data-w'); }); }
+  if('IntersectionObserver' in window){
+    var io3 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ setTimeout(fillBars, 250); io3.unobserve(e.target); } });
+    }, {threshold:.3});
+    io3.observe(panel);
+  } else { fillBars(); }
+</script>
+</body>
+</html>
