@@ -75,12 +75,12 @@ var works = [
   },
   {
     id: 'saas-model',
-    title: '3 Statement SaaS Financial Model with Scenario Analysis & Dashboard',
+    title: '3 Statement SaaS Financial Model',
     category: 'dashboard',
-    image: 'assets/saas-model-dashboard.webp',
+    image: 'assets/saas-model/cover.webp',
     href: 'saas-model.html',
-    blurb: 'A fully linked income statement, balance sheet, and cash flow with MRR waterfall, Base, Downside, and Upside scenarios, and an executive dashboard for KPIs and monthly trends. Assumptions drive every output tab. Select a scenario and the forecast, metrics, and dashboard update together.',
-    tags: ['Excel', 'Google Sheets', 'Scenarios'],
+    blurb: 'A fifteen tab Excel workbook, with a Google Sheets version, that plans a SaaS company month by month from its own books to December 2029. Self serve and sales led ARR come from their drivers, the income statement, balance sheet, and cash flow are linked and balance every month, and Base, Downside, and Upside run side by side. A driver tree shows where each year\'s ARR comes from, and 21 built in checks sit underneath.',
+    tags: ['Excel', 'Google Sheets', 'SaaS metrics', 'Scenarios'],
     featured: true
   },
   {

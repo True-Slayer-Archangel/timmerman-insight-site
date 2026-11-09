@@ -11,11 +11,11 @@
 })();
 </script>
 <title>3 Statement SaaS Financial Model · Omari Timmerman</title>
-<meta name="description" content="A fully linked 3 statement SaaS financial model with MRR waterfall, scenario analysis, and an executive dashboard in Excel.">
+<meta name="description" content="A fifteen tab Excel model, with a Google Sheets version, that plans a SaaS company month by month from its books: self serve and sales led ARR from their drivers, three linked statements, three scenarios at once, and a driver tree for ARR.">
 <link rel="canonical" href="https://timmermaninsight.com/saas-model.html">
 <meta property="og:url" content="https://timmermaninsight.com/saas-model.html">
 <meta property="og:title" content="3 Statement SaaS Financial Model · Omari Timmerman">
-<meta property="og:description" content="A fully linked 3 statement SaaS financial model with MRR waterfall, scenario analysis, and an executive dashboard in Excel.">
+<meta property="og:description" content="A fifteen tab Excel model, with a Google Sheets version, that plans a SaaS company month by month from its books: self serve and sales led ARR from their drivers, three linked statements, three scenarios at once, and a driver tree for ARR.">
 <meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
@@ -25,17 +25,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="detail-page">
+<body class="detail-page detail-page--subnav">
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-lead">
-      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
-      <div class="nav-build-switcher">
-        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
-        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
-      </div>
     </div>
     <nav class="nav-links" aria-label="Portfolio sections">
       <a href="index.html#services">Services</a>
@@ -54,11 +49,16 @@
   </div>
 </header>
 
+<div class="build-subnav" aria-label="Build navigation">
+  <div class="wrap">
+    <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+  </div>
+</div>
+
 <main>
   <section class="detail-hero">
     <div class="wrap">
-      <div class="build-nav reveal">
-        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+      <div class="build-nav reveal build-nav--switcher-only">
         <div class="build-switcher">
           <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
           <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
@@ -67,19 +67,57 @@
 
       <header class="build-header reveal">
         <span class="eyebrow">Sample build</span>
-        <h1>3 Statement SaaS Financial Model with Scenario Analysis &amp; Dashboard</h1>
-        <p class="summary">A fully linked income statement, balance sheet, and cash flow with MRR waterfall, scenario toggles, and an executive dashboard for KPIs and monthly trends.</p>
+        <h1>3 Statement SaaS Financial Model</h1>
+        <p class="summary">A fifteen tab Excel workbook, with a Google Sheets version, that plans a SaaS company month by month from its own books to December 2029. Self serve and sales led ARR come from their drivers, the income statement, balance sheet, and cash flow are linked and balance every month, and Base, Downside, and Upside run side by side. A driver tree shows where each year's ARR comes from, and 21 built in checks sit underneath.</p>
         <div class="chips">
           <span class="chip">Excel</span>
           <span class="chip">Google Sheets</span>
+          <span class="chip">SaaS metrics</span>
           <span class="chip">Scenarios</span>
-          <span class="chip">Dashboard</span>
         </div>
       </header>
 
+      <div class="stats-intro reveal">
+        <span class="eyebrow">Illustrative sample outputs from the bundled model</span>
+      </div>
+      <div class="stats-grid reveal" role="group" aria-label="Sample outputs" style="margin-top:28px">
+        <div class="stat">
+          <div class="num">$4.29M</div>
+          <div class="lab">ARR at June 2026, from the books</div>
+        </div>
+        <div class="stat">
+          <div class="num">$18.2M</div>
+          <div class="lab">ARR at December 2029, Base</div>
+        </div>
+        <div class="stat">
+          <div class="num">$9.4M to $27.1M</div>
+          <div class="lab">December 2029, Downside to Upside</div>
+        </div>
+        <div class="stat">
+          <div class="num">50%</div>
+          <div class="lab">ARR growth a year, 2026 to 2029, Base</div>
+        </div>
+        <div class="stat">
+          <div class="num">Nov 2028</div>
+          <div class="lab">First month of positive EBITDA, Base</div>
+        </div>
+        <div class="stat">
+          <div class="num">92%</div>
+          <div class="lab">Net revenue retention 2029, from the cohorts</div>
+        </div>
+        <div class="stat">
+          <div class="num">$1.22M</div>
+          <div class="lab">Lowest cash, Sep 2026, before the Series A</div>
+        </div>
+        <div class="stat">
+          <div class="num">3 months</div>
+          <div class="lab">Below the $1M cash floor in Downside</div>
+        </div>
+      </div>
+
       <div class="build-showcase">
         <div class="build-showcase-main">
-          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Model views" hidden></div>
+          <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
           <figure class="preview-figure">
             <div class="app-frame">
               <div class="app-frame__bar">
@@ -87,17 +125,17 @@
                 <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
               </div>
               <div class="app-frame__body">
-                <img id="preview-img" src="assets/saas-model-dashboard.webp" alt="Executive dashboard with FY2025 KPIs, monthly revenue and EBITDA trend, and active projects">
+                <img id="preview-img" src="assets/saas-model/01-plan.webp" alt="3 Statement SaaS Financial Model plan preview">
               </div>
             </div>
-            <figcaption class="preview-caption" id="preview-caption">Executive dashboard · FY KPIs · monthly revenue and EBITDA trend</figcaption>
+            <figcaption class="preview-caption" id="preview-caption">Plan · scenario and year pickers · where ARR comes from, as a driver tree · cash in all three scenarios · five years</figcaption>
           </figure>
 
           <div class="build-desc build-desc--under-preview">
-            <p>This workbook is a complete 3 statement SaaS model built in Excel. Income statement, balance sheet, and cash flow are linked end to end, with a dedicated Assumptions tab driving churn, pricing, headcount, and scenario selection across every output tab.</p>
-            <p>The revenue build includes an MRR waterfall with new business, expansion, and churn, plus segment revenue for core SaaS, add on modules, and professional services. SaaS metrics like ARPU, LTV, and CAC roll up automatically from the same inputs.</p>
-            <p>Scenario analysis compares Base, Downside, and Upside side by side. Select a scenario on the Assumptions tab and every forecast, KPI, and dashboard view updates without manual relinking.</p>
-            <p>The executive dashboard summarizes FY revenue, EBITDA, gross margin, and net income alongside a monthly revenue and EBITDA trend with embedded bar charts, plus an active projects tracker. Formatting follows audit friendly conventions so a founder or finance lead can update assumptions and share outputs with investors on short notice.</p>
+            <p>The sample is Corvane Software, a fictional company that sells scheduling and invoicing software to HVAC and plumbing contractors two ways: self serve Starter and Pro plans paid monthly by card, and sales led Fleet contracts billed a year upfront. Eighteen months of actuals, January 2025 to June 2026, come from the books, the billing system's subscription movements, and 189 contract terms. The plan runs month by month to December 2029 from the balances at the actuals date, and moving that date back makes it pick up from an earlier month end.</p>
+            <p>The Plan draws ARR at the end of the picked year as a tree: ARR a year earlier, plus new self serve and sales led ARR and expansion, less churn and downgrades, down to the drivers. Trials times trial to paid times new ARR per customer gives new self serve ARR, and ramped account executives times deals per AE times contract value gives new sales led ARR. Beside it, cash at every month end in all three scenarios against the cash floor, with the Series A as the step up, a runway table, and a five year summary.</p>
+            <p>New contracts come from the account executives on the hiring plan once they ramp. Contracts renew every 12 months at a renewal rate with a price uplift, so churn happens at renewal and annual billing builds deferred revenue. Payroll with January raises, hosting per customer, card fees, commissions, capital spending, a term loan, interest on cash, and tax with losses carried forward complete the three statements, and NRR and GRR come from the cohorts.</p>
+            <p>Base, Downside, and Upside run at once, so Scenarios shows them side by side and the one picked on the Plan feeds the statements, ARR, and Unit Economics. A Checks tab runs 21 tests, from the balance sheet in every month of every run to the books against the subscription and contract data, and data warnings on every row. Corvane Software is fictional and every figure is illustrative.</p>
           </div>
         </div>
 
@@ -147,23 +185,27 @@
   initBuildDetail({
     appLabel: 'Microsoft Excel',
     views: [
-      { name: 'Dashboard', img: 'assets/saas-model-dashboard.webp', caption: 'Executive dashboard · FY KPIs · monthly revenue & EBITDA trend' },
-      { name: 'Revenue', img: 'assets/saas-model-revenue.webp', caption: 'Revenue model · MRR waterfall · segment revenue & SaaS metrics' },
-      { name: 'P&L', img: 'assets/saas-model-income.webp', caption: 'Income statement · FY2024A actuals + 12 month forecast' },
-      { name: 'Scenarios', img: 'assets/saas-model-scenario.webp', caption: 'Scenario analysis · Base, Downside & Upside · driven from Assumptions' },
-      { name: 'Balance sheet', img: 'assets/saas-model-balance-sheet.webp', caption: 'Balance sheet · opening balance + monthly forecasts · balance check' }
+      { name: 'Plan', img: 'assets/saas-model/01-plan.webp', caption: 'Plan · scenario and year pickers · where ARR comes from, as a driver tree · cash in all three scenarios · five years', alt: 'Plan tab with a driver tree that breaks ARR at December 2027 into ARR a year earlier, new self serve and sales led ARR, expansion, and churn, down to trials, conversion, ramped account executives, deals per AE, and contract value, beside a line chart of cash in the Base, Downside, and Upside scenarios against the cash floor, a runway table, and a five year summary' },
+      { name: 'Scenarios', img: 'assets/saas-model/02-scenarios.webp', caption: 'Scenarios · Base, Downside, and Upside side by side · the levers that differ · ARR by month · EBITDA by year', alt: 'Scenarios tab with outcomes for the three scenarios in columns, the picked one shaded, the levers that differ between them, a line chart of ARR and a column chart of EBITDA by year' },
+      { name: 'ARR', img: 'assets/saas-model/03-arr.webp', caption: 'ARR · stacked by the year customers joined · retention from the cohorts · every movement by quarter', alt: 'ARR tab with a stacked area chart of ARR by the year customers joined, net and gross revenue retention by year, and a quarterly table of new, expansion, uplift, downgrades, churn, and contracts not renewed' },
+      { name: 'Unit Economics', img: 'assets/saas-model/04-unit-economics.webp', caption: 'Unit Economics · CAC, payback, and lifetime value by motion · magic number, burn multiple, and Rule of 40', alt: 'Unit Economics tab with self serve, sales led, and efficiency measures by year, each read against a benchmark for 2029, and a column chart of CAC payback in months by motion' },
+      { name: 'Income Statement', img: 'assets/saas-model/05-income-statement.webp', caption: 'Income Statement · five years, then every month · the Actual and Plan band', alt: 'Income statement with five yearly columns and monthly columns for 2026 under a band that turns from Actual to Plan in July 2026' },
+      { name: 'Balance Sheet', img: 'assets/saas-model/06-balance-sheet.webp', caption: 'Balance Sheet · every month end · deferred revenue from annual contracts · the line that shows it balances', alt: 'Balance sheet with cash, receivables, fixed assets, payables, deferred revenue, the term loan, and equity at each month end, and a zero check line' },
+      { name: 'Cash Flow', img: 'assets/saas-model/07-cash-flow.webp', caption: 'Cash Flow · indirect method · the Series A · free cash flow and net burn', alt: 'Cash flow statement from net income through working capital, capital spending, the Series A, and loan repayments to cash at the end, with free cash flow and net burn' },
+      { name: 'Checks', img: 'assets/saas-model/08-checks.webp', caption: 'Checks · 21 reconciliation, books, data quality, and capacity tests · each failure says what to do', alt: 'Checks tab listing reconciliations across all three runs, the books against the billing data, data quality, and capacity tests, all passing, with information lines for the picked scenario' },
+      { name: 'Start Here', img: 'assets/saas-model/09-start-here.webp', caption: 'Start Here · status · at a glance · go to · how the numbers work · reading the Plan', alt: 'Start Here tab with check status, the plan at a glance, links to every tab, how the numbers work, steps to use it for another company, a color key, and how to read the Plan' },
+      { name: 'Assumptions', img: 'assets/saas-model/10-assumptions.webp', caption: 'Assumptions · the actuals date · scenario levers · self serve · sales led · people and costs · debt, cash, and tax', alt: 'Assumptions tab with every input in blue cells: the actuals date and cash floor, the levers for Base, Downside, and Upside, prices, ramp, costs, debt, and tax' }
     ],
-    platforms: [
-      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQCKvQaVeKgHQpSPq7HCXZvxAfHQq4HEkVxcGjGEAc-nym4?e=8Ja9bt' },
-      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1AY5Jy5GGbI_AKAgSZN1JRH-0piP1KLHns75m9V48v1U/edit?usp=sharing' },
-      { name: 'Power BI',      url: '' },
-      { name: 'Looker',        url: '' }
-    ],
+    platforms: [],
     whatsInside: [
-      { label: 'Tabs',      value: 'Dashboard, Assumptions, Scenarios, Revenue Model, P&L, Cash Flow, Balance Sheet, and more' },
-      { label: 'Revenue',   value: 'MRR waterfall: new, expansion, churn' },
-      { label: 'Metrics',   value: 'ARPU, LTV, CAC roll up automatically' },
-      { label: 'Scenarios', value: 'Base, Downside, Upside toggle from Assumptions' }
+      { label: 'Tabs', value: '15: Start Here, seven views, Checks, Assumptions, Hiring Plan, Contracts, Subscriptions, Actuals, and Engine' },
+      { label: 'Timeline', value: 'Monthly from January 2025 to December 2029, actuals from the books up to a date you set' },
+      { label: 'Revenue', value: 'Self serve plans from a trial funnel, and annual contracts from ramped account executives, with renewals and uplift' },
+      { label: 'Statements', value: 'Income statement, balance sheet, and cash flow, monthly and yearly, balanced every month' },
+      { label: 'Scenarios', value: 'Base, Downside, and Upside run at once, with the levers that differ side by side' },
+      { label: 'Measures', value: 'NRR and GRR from cohorts, CAC payback, LTV to CAC, magic number, burn multiple, Rule of 40, and runway' },
+      { label: 'Checks', value: '21 reconciliation, books, data quality, and capacity tests, each with a fix' },
+      { label: 'Note', value: 'Corvane Software is fictional. Every figure is illustrative.' }
     ]
   });
 </script>
