@@ -65,10 +65,10 @@ var works = [
     id: 'multifamily-value-add',
     title: 'Multifamily Value Add Acquisition Model',
     category: 'dashboard',
-    image: 'assets/multifamily/13-dashboard.webp',
+    image: 'assets/multifamily-value-add/cover.webp',
     href: 'multifamily-value-add.html',
-    blurb: 'Dynamic, formula driven Excel model that underwrites a value add multifamily acquisition end to end.',
-    tags: ['Real estate modeling', 'Financial modeling', 'Debt sizing', 'Excel automation', 'openpyxl', 'Scenario analysis'],
+    blurb: 'A thirteen tab Excel workbook, with a Google Sheets version, that underwrites a value add apartment acquisition one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model follows it month by month through downtime and lease up to the renovated rent, then sizes the loan, prices the exit, and splits the returns between investors and sponsor. 19 built in checks sit underneath.',
+    tags: ['Excel', 'Google Sheets', 'Real estate underwriting', 'LP and GP waterfall'],
     featured: true,
     interactiveUrl: 'builds/multifamily-memorandum/',
     interactiveLabel: 'memorandum'

@@ -11,11 +11,11 @@
 })();
 </script>
 <title>Multifamily Value Add Acquisition Model · Omari Timmerman</title>
-<meta name="description" content="A fully linked 14 tab Excel model that underwrites a value add multifamily acquisition from the rent roll through equity returns. Sample deal: 100 unit garden apartment at 17.5M with 1.2M interior renovation.">
+<meta name="description" content="A thirteen tab Excel model, with a Google Sheets version, that underwrites a 100 unit value add apartment deal one unit at a time: a renovation queue that follows lease expirations, monthly cash flow, debt sized like a lender, sensitivity grids, and an LP and GP waterfall.">
 <link rel="canonical" href="https://timmermaninsight.com/multifamily-value-add.html">
 <meta property="og:url" content="https://timmermaninsight.com/multifamily-value-add.html">
 <meta property="og:title" content="Multifamily Value Add Acquisition Model · Omari Timmerman">
-<meta property="og:description" content="A fully linked 14 tab Excel model that underwrites a value add multifamily acquisition from the rent roll through equity returns. Sample deal: 100 unit garden apartment at 17.5M with 1.2M interior renovation.">
+<meta property="og:description" content="A thirteen tab Excel model, with a Google Sheets version, that underwrites a 100 unit value add apartment deal one unit at a time: a renovation queue that follows lease expirations, monthly cash flow, debt sized like a lender, sensitivity grids, and an LP and GP waterfall.">
 <meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
@@ -68,12 +68,12 @@
       <header class="build-header reveal">
         <span class="eyebrow">Sample build</span>
         <h1>Multifamily Value Add Acquisition Model</h1>
-        <p class="summary">Dynamic, formula driven Excel model that underwrites a value add multifamily acquisition end to end.</p>
+        <p class="summary">A thirteen tab Excel workbook, with a Google Sheets version, that underwrites a value add apartment acquisition one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model follows it month by month through downtime and lease up to the renovated rent, then sizes the loan, prices the exit, and splits the returns between investors and sponsor. 19 built in checks sit underneath.</p>
         <div class="chips">
-          <span class="chip">Real estate modeling</span>
-          <span class="chip">Financial modeling</span>
-          <span class="chip">Debt sizing</span>
-          <span class="chip">Excel automation</span>
+          <span class="chip">Excel</span>
+          <span class="chip">Google Sheets</span>
+          <span class="chip">Real estate underwriting</span>
+          <span class="chip">LP and GP waterfall</span>
         </div>
       </header>
 
@@ -82,36 +82,36 @@
       </div>
       <div class="stats-grid reveal" role="group" aria-label="Sample outputs" style="margin-top:28px">
         <div class="stat">
-          <div class="num">18.9%</div>
+          <div class="num">16.5%</div>
           <div class="lab">Levered IRR</div>
         </div>
         <div class="stat">
-          <div class="num">2.27x</div>
+          <div class="num">2.03x</div>
           <div class="lab">Equity multiple</div>
         </div>
         <div class="stat">
-          <div class="num">6.0%</div>
-          <div class="lab">Average cash on cash</div>
+          <div class="num">15.6%</div>
+          <div class="lab">LP IRR, after the promote</div>
         </div>
         <div class="stat">
-          <div class="num">989K to 1.48M</div>
-          <div class="lab">NOI growth, up 49%</div>
+          <div class="num">23.6%</div>
+          <div class="lab">GP IRR, with the promote</div>
         </div>
         <div class="stat">
-          <div class="num">5.65%</div>
-          <div class="lab">Going in cap</div>
+          <div class="num">5.14%</div>
+          <div class="lab">Going in cap, in place NOI</div>
         </div>
         <div class="stat">
-          <div class="num">5.50%</div>
-          <div class="lab">Exit cap</div>
+          <div class="num">5.75%</div>
+          <div class="lab">Exit cap, on the next year of NOI</div>
         </div>
         <div class="stat">
-          <div class="num">7.76%</div>
-          <div class="lab">Stabilized yield on cost</div>
+          <div class="num">7.18%</div>
+          <div class="lab">Yield on cost, Year 3</div>
         </div>
         <div class="stat">
-          <div class="num">1.2M</div>
-          <div class="lab">Renovation across 20 months</div>
+          <div class="num">90 units</div>
+          <div class="lab">Renovated across 15 months</div>
         </div>
       </div>
 
@@ -125,27 +125,17 @@
                 <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
               </div>
               <div class="app-frame__body">
-                <img id="preview-img" src="assets/multifamily/13-dashboard.webp" alt="Multifamily Value Add Acquisition Model executive dashboard preview">
+                <img id="preview-img" src="assets/multifamily-value-add/01-deal-sheet.webp" alt="Multifamily Value Add Acquisition Model deal sheet preview">
               </div>
             </div>
-            <figcaption class="preview-caption" id="preview-caption">Dashboard · executive summary · NOI trend · return metrics</figcaption>
+            <figcaption class="preview-caption" id="preview-caption">Deal Sheet · returns, purchase, financing, and sources and uses · annual pro forma · levered IRR grid · exit</figcaption>
           </figure>
 
           <div class="build-desc build-desc--under-preview">
-            <p>A fully linked 14 tab Excel model that prices a value add multifamily deal from the rent roll through to equity returns. Every output is formula driven, so changing any input reprices the deal. The sample is a 100 unit garden apartment acquisition at 17.5M, held five years, with a 1.2M interior renovation.</p>
-            <p class="rail-heading" style="margin-top:24px;margin-bottom:12px">What it does</p>
-            <p>Unit level rent roll with in place, market, and renovated rents by type</p>
-            <p>60 month revenue waterfall from gross potential rent to effective gross income</p>
-            <p>Renovation capex schedule on a defined unit pace</p>
-            <p>Operating expense forecast by category with growth</p>
-            <p>Net operating income, monthly and annual</p>
-            <p>Debt sizing against four lender tests, LTV, LTC, DSCR, and debt yield, taking the binding constraint</p>
-            <p>Amortizing debt schedule with interest, principal, and period DSCR</p>
-            <p>Levered cash flow to equity</p>
-            <p>Exit valuation on a capitalization rate</p>
-            <p>Equity returns: IRR, equity multiple, and cash on cash</p>
-            <p>Executive dashboard with charts</p>
-            <p>Automated model checks</p>
+            <p>The sample is Alder Court Apartments, a fictional 100 unit garden property in ten two story buildings, bought for $17.5M at the end of 2026 and sold after five years. The rent roll lists every unit with its building, floor, type, lease dates, and in place rent. Eight units were renovated by the seller and two are kept classic. The other 90 join a queue the month after their leases end, and the crew starts at most six a month. Each unit is offline for a month of work, vacant for a month of lease up, then leased at the renovated rent, and the Unit Schedule records its state in every one of the 97 months.</p>
+            <p>The Deal Sheet is the investment committee page: returns against the 15% target, purchase, financing, sources and uses, an annual pro forma from in place through the year the sale is priced on, a levered IRR grid, and the exit. The Stacking Plan draws every unit by building and floor as it stands at the end of any month you pick, with its rent or the reason it has none, and lists the next units the crew will reach.</p>
+            <p>Revenue is built from the units: gross potential rent at market, loss to lease, renovation downtime, and lease up vacancy, then vacancy, concessions, and bad debt. The loan is sized on in place NOI the way a lender sizes it, the smallest of the loan to value, DSCR, and debt yield limits, with interest only months and coverage tested every month through the renovation. The sale is priced on the twelve months of NOI after the exit. IRRs run on the monthly cash flows, and the waterfall pays an 8% preferred return, then 80/20 to a 15% LP IRR, then 70/30.</p>
+            <p>Sensitivity reruns all 97 months of equity cash flow for every cell of three grids, levered IRR by exit cap rate and renovated rent, levered IRR by exit cap rate and hold, and the equity multiple, so each grid lands exactly on the Deal Sheet at its base case. A Checks tab runs 19 tests, from sources against uses and levered profit against unlevered profit less the loan fee and interest, to rent roll warnings and units the crew never reaches. Alder Court Apartments is fictional and every figure is illustrative.</p>
           </div>
         </div>
 
@@ -195,30 +185,31 @@
   initBuildDetail({
     appLabel: 'Microsoft Excel',
     views: [
-      { name: 'Dashboard', img: 'assets/multifamily/13-dashboard.webp', caption: 'Dashboard · executive summary · NOI trend · return metrics' },
-      { name: 'Cover', img: 'assets/multifamily/01-cover.webp', caption: 'Cover · model guide · tab index' },
-      { name: 'Assumptions', img: 'assets/multifamily/02-assumptions.webp', caption: 'Assumptions · acquisition, debt, renovation, and OpEx inputs' },
-      { name: 'Rent Roll', img: 'assets/multifamily/03-rent-roll.webp', caption: 'Rent roll · in place, market, and renovated rents by type' },
-      { name: 'Revenue', img: 'assets/multifamily/05-revenue.webp', caption: 'Revenue · 60 month gross to effective income waterfall' },
-      { name: 'Renovation', img: 'assets/multifamily/04-renovation.webp', caption: 'Renovation · unit pace and capital deployment schedule' },
-      { name: 'OpEx', img: 'assets/multifamily/06-opex.webp', caption: 'OpEx · 60 month operating expense forecast by category' },
-      { name: 'NOI', img: 'assets/multifamily/07-noi.webp', caption: 'NOI · monthly waterfall and annual summary' },
-      { name: 'Debt Sizing', img: 'assets/multifamily/08-debt-sizing.webp', caption: 'Debt sizing · sources and uses · four lender constraints' },
-      { name: 'Debt Schedule', img: 'assets/multifamily/09-debt-schedule.webp', caption: 'Debt schedule · amortizing balance, interest, and principal' },
-      { name: 'Cash Flow', img: 'assets/multifamily/10-cash-flow.webp', caption: 'Cash flow · levered cash flow to equity' },
-      { name: 'Exit', img: 'assets/multifamily/11-exit.webp', caption: 'Exit · reversion value and net proceeds to equity' },
-      { name: 'Returns', img: 'assets/multifamily/12-returns.webp', caption: 'Returns · IRR, equity multiple, and cash on cash' },
-      { name: 'Checks', img: 'assets/multifamily/14-checks.webp', caption: 'Checks · automated integrity tests' }
+      { name: 'Deal Sheet', img: 'assets/multifamily-value-add/01-deal-sheet.webp', caption: 'Deal Sheet · returns, purchase, financing, and sources and uses · annual pro forma · levered IRR grid · exit', alt: 'Deal sheet with ledgers for returns, purchase, financing, and sources and uses down the left, an annual pro forma from in place to Year 6 with per unit and share of income columns, a levered IRR grid by exit cap rate and renovated rent, and the exit' },
+      { name: 'Stacking Plan', img: 'assets/multifamily-value-add/02-stacking-plan.webp', caption: 'Stacking Plan · month picker · every unit by building and floor · state and rent · next up for the crew', alt: 'Stacking plan of ten two story buildings with every unit colored by its state at the end of June 2027, original, offline, leasing, renovated, or renovated by the seller, its rent that month, a summary by state, and the next units in the renovation queue' },
+      { name: 'Sensitivity', img: 'assets/multifamily-value-add/03-sensitivity.webp', caption: 'Sensitivity · levered IRR by exit cap and renovated rent · by exit cap and hold · equity multiple', alt: 'Three sensitivity grids for levered IRR and equity multiple, shaded where the IRR meets the 15% target or falls below the preferred return, with the base case marked' },
+      { name: 'Renovation', img: 'assets/multifamily-value-add/04-renovation.webp', caption: 'Renovation · the queue in start order · by unit type · program timing · started and renovated by month', alt: 'Renovation queue listing each unit with its lease end, the month it can start, the month the crew starts it, when it is back on rent, and the cost, beside a table by unit type, the program timing, and a line chart of units started against units renovated and leased' },
+      { name: 'Unit Schedule', img: 'assets/multifamily-value-add/05-unit-schedule.webp', caption: 'Unit Schedule · each unit\'s state, month by month, from the close', alt: 'Grid of units by month with a letter and a color for each state, showing every renovation as a month offline, a month leasing up, then renovated' },
+      { name: 'Cash Flow', img: 'assets/multifamily-value-add/06-cash-flow.webp', caption: 'Cash Flow · units, revenue, expenses, NOI, the loan, the exit, and the cash flows, month by month', alt: 'Monthly cash flow with unit counts by state, gross potential rent through effective gross income, expenses, NOI, renovation capex, the loan, the exit, and the unlevered and equity cash flows' },
+      { name: 'Debt', img: 'assets/multifamily-value-add/07-debt.webp', caption: 'Debt · sizing on in place NOI · terms · covenant · loan by year · coverage against the covenant · capital stack', alt: 'Debt tab with the loan sized against LTV, DSCR, and debt yield, the terms, the covenant test, the loan by year, a line chart of coverage against the covenant, and a capital stack of sources against uses' },
+      { name: 'Waterfall', img: 'assets/multifamily-value-add/08-waterfall.webp', caption: 'Waterfall · structure · LP and GP results · cash by tier · cash by year', alt: 'Waterfall tab with the tiers, LP and GP contributions, distributions, IRR, and multiple, a stacked bar of each partner\'s cash by tier, and a table of cash by year' },
+      { name: 'Checks', img: 'assets/multifamily-value-add/09-checks.webp', caption: 'Checks · 19 reconciliation, tie, data quality, and capacity tests · each failure says what to do', alt: 'Checks tab listing reconciliation, tie, data quality, and capacity tests, all passing, with a fix for each and information lines' },
+      { name: 'Start Here', img: 'assets/multifamily-value-add/10-start-here.webp', caption: 'Start Here · status · at a glance · go to · how the numbers work · unit states', alt: 'Start Here tab with check status, the deal at a glance, links to every tab, how the numbers work, steps to use it for another deal, a color key, and the unit states' },
+      { name: 'Assumptions', img: 'assets/multifamily-value-add/11-assumptions.webp', caption: 'Assumptions · timing · purchase · renovation program · unit types · revenue · expenses · debt · exit · waterfall', alt: 'Assumptions tab with every input in blue cells: dates, price, the renovation program, unit types with classic and renovated rents, revenue, expenses, debt, exit, and the waterfall' },
+      { name: 'Rent Roll', img: 'assets/multifamily-value-add/12-rent-roll.webp', caption: 'Rent Roll · one row per unit · the queue and start months worked out', alt: 'Rent roll with each unit\'s building, floor, position, type, lease dates, and in place rent typed in, and its rents, cost, queue position, and start month worked out' }
     ],
     platforms: [
       { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQBq2QESSvSzRrZUNZe5arHTAaJNXpB8FDV66B4q_y4yb9U?e=UdUFUv' },
       { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1En1zBgYB4I38qznYBzEKGOvPguRYwy6U1T-U6KIipqQ/edit?usp=sharing' }
     ],
     whatsInside: [
-      { label: 'Tabs', value: '14 linked tabs from Assumptions through Checks' },
-      { label: 'Hold', value: '60 month operating forecast on a five year hold' },
-      { label: 'Debt', value: 'Sizing against LTV, LTC, DSCR, and debt yield' },
-      { label: 'Returns', value: 'Levered IRR, equity multiple, and cash on cash at exit' }
+      { label: 'Tabs', value: '13: Start Here, seven views, Checks, Assumptions, Rent Roll, Unit Schedule, and Engine' },
+      { label: 'Units', value: '100 units, each renovated when its lease ends, with a crew limit, downtime, and lease up' },
+      { label: 'Debt', value: 'Sized on in place NOI against LTV, DSCR, and debt yield, with interest only months and a monthly covenant test' },
+      { label: 'Returns', value: 'Monthly levered and unlevered IRR, multiple, and an LP and GP waterfall with two hurdles' },
+      { label: 'Sensitivity', value: 'Three grids, each cell a full rerun of 97 months of equity cash flow' },
+      { label: 'Checks', value: '19 reconciliation, tie, data quality, and capacity tests, each with a fix' },
+      { label: 'Note', value: 'Alder Court Apartments is fictional. Every figure is illustrative.' }
     ]
   });
 </script>
