@@ -893,3 +893,10 @@ body.lightbox-open{overflow:hidden}
 .build-rail .rail-spec{order:2}
 body.mobile-nav-open header.nav{z-index:110}
 .hero .row-label{flex:0 0 13ch;width:13ch;min-width:13ch}
+
+/* 12 Nov 2026, round 3: a real workbook screenshot in the hero, and uncropped project covers on the homepage */
+.hero-shot{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--hair-strong);background:#fff;box-shadow:var(--shadow-lift);text-decoration:none}
+.hero-shot img{display:block;width:100%;height:auto}
+.hero-shot__cap{display:block;padding:10px 14px;font-size:13px;color:var(--ink-soft);background:var(--surface);border-top:1px solid var(--hair)}
+#work .work-vis--thumb{height:auto !important;aspect-ratio:16/10;background:#fff}
+#work .work-vis--thumb img{object-fit:contain;object-position:center top}

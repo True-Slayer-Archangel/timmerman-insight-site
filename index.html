@@ -35,7 +35,6 @@
     <nav class="nav-links">
       <a href="#services">Services</a>
       <a href="work.html">Work</a>
-      <a href="#process">Process</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
@@ -71,43 +70,10 @@
     </div>
 
     <div class="hero-vis">
-      <div class="panel" id="heroPanel">
-        <div class="panel-top">
-          <span class="panel-title">Budget vs Actual</span>
-          <span class="tag">Sample build</span>
-        </div>
-        <div class="panel-cap">Q3 · variance view · auto refresh</div>
-
-        <div class="row">
-          <span class="row-label">Revenue</span>
-          <span class="track"><span class="fill" data-w="86%"></span></span>
-          <span class="delta pos">&#9650; 6%</span>
-        </div>
-        <div class="row">
-          <span class="row-label">Gross&nbsp;margin</span>
-          <span class="track"><span class="fill" data-w="72%"></span></span>
-          <span class="delta pos">&#9650; 2pp</span>
-        </div>
-        <div class="row">
-          <span class="row-label">Opex</span>
-          <span class="track"><span class="fill warn" data-w="58%"></span></span>
-          <span class="delta warn">&#9650; 3%</span>
-        </div>
-        <div class="row">
-          <span class="row-label">Net&nbsp;income</span>
-          <span class="track"><span class="fill" data-w="64%"></span></span>
-          <span class="delta pos">&#9650; 9%</span>
-        </div>
-
-        <div class="panel-foot">
-          <span class="label">12 month trend</span>
-          <svg class="spark" width="118" height="30" viewBox="0 0 118 30" fill="none" aria-hidden="true">
-            <polyline points="2,24 14,21 26,22 38,16 50,18 62,12 74,13 86,8 98,9 116,3"
-              stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="116" cy="3" r="3" fill="var(--brand)"/>
-          </svg>
-        </div>
-      </div>
+      <a class="hero-shot" href="operational-finance-control.html">
+        <img src="assets/operational-finance-control/cover.webp" width="1200" height="721" alt="The Dashboard tab of the Operational Finance Control Tower workbook">
+        <span class="hero-shot__cap">Operational Finance Control Tower · Dashboard</span>
+      </a>
     </div>
   </div>
 </section>
@@ -136,49 +102,6 @@
   </div>
 </section>
 
-<section class="deckcta">
-  <a class="deckcta__card" href="capabilities.html" aria-label="Open the capabilities deck">
-    <div class="deckcta__body">
-      <p class="deckcta__eyebrow">The deck</p>
-      <h2 class="deckcta__title">View the capabilities deck</h2>
-      <p class="deckcta__text">Twenty slides on what I build and how a project runs.</p>
-      <div class="deckcta__meta">
-        <span class="deckcta__chip">20 slides</span>
-        <span class="deckcta__chip">Live charts</span>
-        <span class="deckcta__chip">Saves as PDF</span>
-      </div>
-      <span class="deckcta__btn">Open deck
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    </div>
-    <div class="deckcta__preview" aria-hidden="true">
-      <span class="deckcta__edge deckcta__edge--2"></span>
-      <span class="deckcta__edge deckcta__edge--1"></span>
-      <div class="deckcta__slide">
-        <div class="deckcta__fx"><i>fx</i><span>=TIMMERMAN_INSIGHT("FP&amp;A", "automation")</span></div>
-        <div class="deckcta__wm">Timmerman Insight</div>
-        <svg class="deckcta__chart" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dashboard preview">
-          <text x="10" y="20" fill="var(--deck-chart-label)" font-family="monospace" font-size="9" letter-spacing="1">FY2026 OPEX</text>
-          <rect x="222" y="8" width="66" height="22" rx="11" fill="var(--deck-teal-soft)"></rect>
-          <text x="255" y="23" text-anchor="middle" fill="var(--deck-teal)" font-family="monospace" font-size="11" font-weight="600">+1.4%</text>
-          <line x1="24" y1="80" x2="286" y2="80" stroke="var(--deck-line-faint)"></line>
-          <line x1="24" y1="110" x2="286" y2="110" stroke="var(--deck-line-faint)"></line>
-          <rect x="30" y="90" width="16" height="40" rx="2" fill="var(--deck-chart-bar)"></rect>
-          <rect x="50" y="80" width="16" height="50" rx="2" fill="var(--deck-teal)"></rect>
-          <rect x="82" y="76" width="16" height="54" rx="2" fill="var(--deck-chart-bar)"></rect>
-          <rect x="102" y="84" width="16" height="46" rx="2" fill="var(--deck-teal)"></rect>
-          <rect x="134" y="60" width="16" height="70" rx="2" fill="var(--deck-chart-bar)"></rect>
-          <rect x="154" y="52" width="16" height="78" rx="2" fill="var(--deck-teal)"></rect>
-          <rect x="186" y="72" width="16" height="58" rx="2" fill="var(--deck-chart-bar)"></rect>
-          <rect x="206" y="76" width="16" height="54" rx="2" fill="var(--deck-teal)"></rect>
-          <rect x="238" y="96" width="16" height="34" rx="2" fill="var(--deck-chart-bar)"></rect>
-          <rect x="258" y="88" width="16" height="42" rx="2" fill="var(--deck-teal)"></rect>
-          <line x1="24" y1="130" x2="286" y2="130" stroke="var(--deck-line)"></line>
-        </svg>
-      </div>
-    </div>
-  </a>
-</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -245,66 +168,19 @@
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process" class="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">How I work</span>
-      <h2>How a project runs.</h2>
-      <p>The same five steps on every project, from the first call to the handover.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="idx">01</div>
-        <h4>A short call</h4>
-        <p>We look at your files and what you need from them. I ask what's breaking and what the finished file should do.</p>
-      </div>
-      <div class="step reveal">
-        <div class="idx">02</div>
-        <h4>Scope and price</h4>
-        <p>You get the scope, the timeline, and a fixed price in writing before any work starts.</p>
-      </div>
-      <div class="step reveal">
-        <div class="idx">03</div>
-        <h4>Clean the data</h4>
-        <p>I clean up your exports and connect them, so the same steps work every month.</p>
-      </div>
-      <div class="step reveal">
-        <div class="idx">04</div>
-        <h4>Build and test</h4>
-        <p>I build the workbook and test it on your real data, with checks that flag anything that doesn't tie.</p>
-      </div>
-      <div class="step reveal">
-        <div class="idx">05</div>
-        <h4>Handover</h4>
-        <p>You get the file, a walkthrough, and help while your team gets used to running it.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- STACK -->
-<section id="stack" class="stack">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Tools I work in</span>
-      <h2>Mostly Excel and Google Sheets, plus these.</h2>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-inner">
+    <div class="about-photo reveal">
+      <div class="photo-frame"><img src="assets/omari-photo.webp" alt="Omari Timmerman, FP&amp;A and spreadsheet automation specialist" width="456" height="381" loading="lazy"></div>
     </div>
-    <div class="stack-row reveal">
-      <span class="tool"><b></b>Microsoft Excel</span>
-      <span class="tool"><b></b>Google Sheets</span>
-      <span class="tool"><b></b>Power Query</span>
-      <span class="tool"><b></b>VBA</span>
-      <span class="tool"><b></b>Google Apps Script</span>
-      <span class="tool"><b></b>Power Automate</span>
-      <span class="tool"><b></b>Power BI</span>
-      <span class="tool"><b></b>Looker Studio</span>
-      <span class="tool"><b></b>SQL</span>
-      <span class="tool"><b></b>Python</span>
-      <span class="tool"><b></b>DAX</span>
-      <span class="tool"><b></b>SharePoint</span>
-      <span class="tool"><b></b>Claude API</span>
-      <span class="tool"><b></b>OpenAI API</span>
+    <div class="about-text reveal">
+      <span class="eyebrow">About</span>
+      <h2>More than a hundred projects, mostly in Excel and Google Sheets.</h2>
+      <p>I started freelancing after a few internships. The advice I kept hearing was to work for free until I had enough experience, and in this economy that didn't make sense to me, so I took the harder road and went straight to paid client work. Today I'm a Top Rated Plus freelancer on Upwork.</p>
+      <p>The part I enjoy most is working out what's slowing someone down and building the fix. Most of my clients are finance teams and founders who need a model, dashboard, or report they can put in front of a board or a lender, so I build each file to be checked: inputs in one place, formulas you can follow, and a tab that shows whether the numbers tie.</p>
     </div>
   </div>
 </section>
@@ -404,25 +280,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap about-inner">
-    <div class="about-photo reveal">
-      <div class="photo-frame"><img src="assets/omari-photo.webp" alt="Omari Timmerman, FP&amp;A and spreadsheet automation specialist" width="456" height="381" loading="lazy"></div>
-    </div>
-    <div class="about-text reveal">
-      <span class="eyebrow">About</span>
-      <h2>More than a hundred projects, mostly in Excel and Google Sheets.</h2>
-      <p>I'm a Top Rated Plus freelancer on Upwork, and most of my clients are finance teams and founders who need a model, dashboard, or report they can put in front of a board or a lender.</p>
-      <p>I build each file so someone else can check it: inputs in one place, formulas you can follow, and a tab that shows whether the numbers tie. Power Query, VBA, and Apps Script come in when a formula isn't enough.</p>
-      <div class="about-facts">
-        <span class="fact"><b>Top Rated Plus</b>Upwork status</span>
-        <span class="fact"><b>100+ projects</b>delivered</span>
-        <span class="fact"><b>4.9 / 5</b>average rating</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CTA -->
 <section class="cta-band">
@@ -512,15 +369,6 @@
     counts.forEach(runCount);
   }
 
-  // hero panel bars fill when visible
-  var panel = document.getElementById('heroPanel');
-  function fillBars(){ panel.querySelectorAll('.fill').forEach(function(f){ f.style.width = f.getAttribute('data-w'); }); }
-  if('IntersectionObserver' in window){
-    var io3 = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ setTimeout(fillBars, 250); io3.unobserve(e.target); } });
-    }, {threshold:.3});
-    io3.observe(panel);
-  } else { fillBars(); }
 </script>
 </body>
 </html>
