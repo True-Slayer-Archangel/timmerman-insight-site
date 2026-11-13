@@ -908,3 +908,13 @@ body.mobile-nav-open header.nav{z-index:110}
 .hero-trust{flex-wrap:wrap;row-gap:6px}
 .hero-trust span{white-space:nowrap}
 .eyebrow.outputs-label{display:block;margin-top:18px}
+
+/* 13 Nov 2026, round 5: next build and call to action at the end of build pages; no filter bar on the work page */
+.build-next{padding:8px 0 72px}
+.build-next__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--hair);padding-top:28px}
+.build-next__link{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--ink)}
+.build-next__label{font-size:13px;color:var(--ink-soft)}
+.build-next__title{font-size:20px;font-weight:600}
+.build-next__link:hover .build-next__title{color:var(--brand)}
+.build-next__cta{display:flex;flex-wrap:wrap;gap:10px}
+#work-filter{display:none}

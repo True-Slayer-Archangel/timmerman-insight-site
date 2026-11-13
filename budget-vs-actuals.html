@@ -23,14 +23,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261113b">
+<link rel="stylesheet" href="styles.css?v=20261113c">
 </head>
-<body class="detail-page">
+<body class="detail-page detail-page--subnav">
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-lead">
-      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
       <div class="nav-build-switcher">
         <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
@@ -52,11 +51,16 @@
   </div>
 </header>
 
+<div class="build-subnav" aria-label="Build navigation">
+  <div class="wrap">
+    <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+  </div>
+</div>
+
 <main>
   <section class="detail-hero">
     <div class="wrap">
-      <div class="build-nav reveal">
-        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+      <div class="build-nav reveal build-nav--switcher-only">
         <div class="build-switcher">
           <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
           <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
@@ -116,6 +120,15 @@
       </div>
     </div>
   </section>
+  <section class="build-next">
+    <div class="wrap build-next__inner">
+      <a class="build-next__link" href="automated-report-system.html"><span class="build-next__label">Next build</span><span class="build-next__title">Automated Monthly Report System &rarr;</span></a>
+      <div class="build-next__cta">
+        <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Email me</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -133,12 +146,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261113b"></script>
-<script src="reveal.js?v=20261113b"></script>
-<script src="works.js?v=20261113b"></script>
-<script src="build-nav.js?v=20261113b"></script>
-<script src="platforms.js?v=20261113b"></script>
-<script src="build-detail.js?v=20261113b"></script>
+<script src="theme.js?v=20261113c"></script>
+<script src="reveal.js?v=20261113c"></script>
+<script src="works.js?v=20261113c"></script>
+<script src="build-nav.js?v=20261113c"></script>
+<script src="platforms.js?v=20261113c"></script>
+<script src="build-detail.js?v=20261113c"></script>
 <script>
   initBuildNav('budget-vs-actuals.html');
   initDetailNavScroll();

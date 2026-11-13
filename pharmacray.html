@@ -23,14 +23,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261113b">
+<link rel="stylesheet" href="styles.css?v=20261113c">
 </head>
-<body class="detail-page">
+<body class="detail-page detail-page--subnav">
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-lead">
-      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
       <div class="nav-build-switcher">
         <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
@@ -52,11 +51,16 @@
   </div>
 </header>
 
+<div class="build-subnav" aria-label="Build navigation">
+  <div class="wrap">
+    <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+  </div>
+</div>
+
 <main>
   <section class="detail-hero">
     <div class="wrap">
-      <div class="build-nav reveal">
-        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+      <div class="build-nav reveal build-nav--switcher-only">
         <div class="build-switcher">
           <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
           <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
@@ -92,7 +96,7 @@
           </figure>
 
           <div class="build-desc build-desc--under-preview">
-            <p>PharmaCray models an independent retail pharmacy. Five inputs go in: claims from the pharmacy system, one row per script sent to a PBM, the daily till summary, timesheet hours, the stock count, and the monthly adherence report. Every claim's status, picked up, in the bin, returned to stock, or rejected, is worked out from its dates against the as of date, and a script counts as revenue only once it is picked up. Net margin then takes off the drug cost and the DIR each PBM claws back later.</p>
+            <p>PharmaCray models an independent retail pharmacy. Five inputs go in: claims from the pharmacy system, one row per script sent to a PBM, the daily till summary, timesheet hours, the stock count, and the monthly adherence report. Every claim's status, picked up, in the bin, returned to stock, or rejected, is worked out from its dates against the as of date, and a script counts as revenue only once it's picked up. Net margin then takes off the drug cost and the DIR each PBM claws back later.</p>
             <p>The Scorecard puts twenty measures in four equal panels: reimbursement and margin, workflow and front store, inventory and purchasing, and patients and adherence. Each shows the month in view against its aim, a Clear, Watch, or Act status, the change on the month before in words, and a trend over the last 13 weeks, or over the last three adherence reports. A month picker drives every view, and a line at the top names what to act on first.</p>
             <p>Reimbursement breaks the month down by PBM: revenue, drug cost, DIR, net margin a script, rejections, brand claims underwater after DIR, and what each PBM still owes, with a weekly chart of margin and DIR and the drugs that lost the most. Workflow shows scripts a pharmacist hour and turnaround by week, a heatmap of the busy hours, and front store sales by category. Inventory covers stock value and turns by class, dead stock, lines to reorder, and the preferred wholesaler. Adherence shows each star measure as the share of patients at a PDC of 80% or more, MedSync patients against the rest, how new patients start, and the patients to call, lowest PDC first.</p>
             <p>A Checks tab runs 25 tests on every refresh, from reconciliations that must read zero, such as net margin by PBM against the month's net margin, to data quality counts like claims filled outside store hours, a PBM missing from Assumptions, or a day with fills and no labor row. PharmaCray Pharmacy is fictional and every figure is illustrative. The data runs from April to June 2026: in June, 12 of the 20 measures are clear, and brand claims underwater, turnaround, and statin adherence need action. Set the as of date back and every view shows the pharmacy as it stood then.</p>
@@ -116,6 +120,15 @@
       </div>
     </div>
   </section>
+  <section class="build-next">
+    <div class="wrap build-next__inner">
+      <a class="build-next__link" href="multifamily-value-add.html"><span class="build-next__label">Next build</span><span class="build-next__title">Multifamily Value Add Acquisition Model &rarr;</span></a>
+      <div class="build-next__cta">
+        <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Email me</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -133,12 +146,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261113b"></script>
-<script src="reveal.js?v=20261113b"></script>
-<script src="works.js?v=20261113b"></script>
-<script src="build-nav.js?v=20261113b"></script>
-<script src="platforms.js?v=20261113b"></script>
-<script src="build-detail.js?v=20261113b"></script>
+<script src="theme.js?v=20261113c"></script>
+<script src="reveal.js?v=20261113c"></script>
+<script src="works.js?v=20261113c"></script>
+<script src="build-nav.js?v=20261113c"></script>
+<script src="platforms.js?v=20261113c"></script>
+<script src="build-detail.js?v=20261113c"></script>
 <script>
   initBuildNav('pharmacray.html');
   initDetailNavScroll();

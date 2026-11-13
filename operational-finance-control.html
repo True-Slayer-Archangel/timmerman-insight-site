@@ -23,14 +23,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261113b">
+<link rel="stylesheet" href="styles.css?v=20261113c">
 </head>
-<body class="detail-page">
+<body class="detail-page detail-page--subnav">
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-lead">
-      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
       <div class="nav-build-switcher">
         <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
@@ -52,11 +51,16 @@
   </div>
 </header>
 
+<div class="build-subnav" aria-label="Build navigation">
+  <div class="wrap">
+    <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+  </div>
+</div>
+
 <main>
   <section class="detail-hero">
     <div class="wrap">
-      <div class="build-nav reveal">
-        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+      <div class="build-nav reveal build-nav--switcher-only">
         <div class="build-switcher">
           <label for="build-select-top" class="build-switcher-label">Other sample builds</label>
           <select id="build-select-top" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
@@ -92,8 +96,8 @@
           </figure>
 
           <div class="build-desc build-desc--under-preview">
-            <p>This build models a recruitment advertising agency. Clients prepay campaign budgets, the agency keeps a contracted margin, and the rest passes through to job board vendors such as Indeed and ZipRecruiter, who invoice weeks later or get charged to the company card. So the bank balance always looks better than the cash the business can actually use. Four inputs go in, one row per booking, client payment, vendor line, and expense, and every status, paid, on card, invoiced, or not yet invoiced, is worked out from the dates against the as of date.</p>
-            <p>The Dashboard leads with available operating cash: cash in bank less the client money held for work not yet delivered, vendor invoices to pay, spend delivered but not yet invoiced, the card balance, and unpaid expenses. A bridge shows each step down from the bank balance, and eight controls mark Clear, Watch, or Act, each with what it is based on: the minimum reserve, client money covered by cash, runway, operating margin, vendor invoices past the terms, invoices not yet received, the card balance, and clients behind on payment. A picker winds every figure on the page back to any month end, and a stacked chart shows where the cash sat each month, with the three forecast months after it.</p>
+            <p>This build models a recruitment advertising agency. Clients prepay campaign budgets, the agency keeps a contracted margin, and the rest passes through to job board vendors such as Indeed and ZipRecruiter, who invoice weeks later or get charged to the company card. So the bank balance always looks better than the cash the business can use. Four inputs go in, one row per booking, client payment, vendor line, and expense, and every status, paid, on card, invoiced, or not yet invoiced, is worked out from the dates against the as of date.</p>
+            <p>The Dashboard leads with available operating cash: cash in bank less the client money held for work not yet delivered, vendor invoices to pay, spend delivered but not yet invoiced, the card balance, and unpaid expenses. A bridge shows each step down from the bank balance, and eight controls mark Clear, Watch, or Act, each with what it's based on: the minimum reserve, client money covered by cash, runway, operating margin, vendor invoices past the terms, invoices not yet received, the card balance, and clients behind on payment. A picker winds every figure on the page back to any month end, and a stacked chart shows where the cash sat each month, with the three forecast months after it.</p>
             <p>Cash rebuilds the position at every month end, the cash flow behind it, and the vendor items still to pay, oldest first, each with what to do. Campaigns shows client money held and the true margin after card fees and overage spend, Vendors shows what is owed and how fast it gets paid, Monthly sets profit and loss beside cash, and Forecast runs three months from the open budgets, new bookings, and five drivers. A Checks tab runs 24 tests on every refresh, from reconciliations that must read zero, such as available cash equals opening cash plus operating income less what clients owe, to data quality counts and capacity warnings, and every failure says where to look.</p>
             <p>Meridian Talent Acquisition is a fictional agency and every figure in this sample is illustrative. The year starts in January 2026 and the figures run through June, when $197,025 of the $399,452 in the bank is free to use. Set the as of date back and every view shows the business as it stood then.</p>
           </div>
@@ -115,6 +119,15 @@
       </div>
     </div>
   </section>
+  <section class="build-next">
+    <div class="wrap build-next__inner">
+      <a class="build-next__link" href="job-costing.html"><span class="build-next__label">Next build</span><span class="build-next__title">Job Costing and Profitability Tracker &rarr;</span></a>
+      <div class="build-next__cta">
+        <a class="btn btn-primary" href="https://www.upwork.com/freelancers/omaritimmerman" target="_blank" rel="noopener">Hire on Upwork <span class="btn-arrow">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:Omari@timmermaninsight.com?subject=Project%20inquiry">Email me</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -132,12 +145,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261113b"></script>
-<script src="reveal.js?v=20261113b"></script>
-<script src="works.js?v=20261113b"></script>
-<script src="build-nav.js?v=20261113b"></script>
-<script src="platforms.js?v=20261113b"></script>
-<script src="build-detail.js?v=20261113b"></script>
+<script src="theme.js?v=20261113c"></script>
+<script src="reveal.js?v=20261113c"></script>
+<script src="works.js?v=20261113c"></script>
+<script src="build-nav.js?v=20261113c"></script>
+<script src="platforms.js?v=20261113c"></script>
+<script src="build-detail.js?v=20261113c"></script>
 <script>
   initBuildNav('operational-finance-control.html');
   initDetailNavScroll();

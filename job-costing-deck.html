@@ -23,14 +23,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261113b">
+<link rel="stylesheet" href="styles.css?v=20261113c">
 </head>
-<body class="detail-page detail-page--deck">
+<body class="detail-page detail-page--deck detail-page--subnav">
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="nav-lead">
-      <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
     </div>
     <nav class="nav-links" aria-label="Portfolio sections">
@@ -48,11 +47,16 @@
   </div>
 </header>
 
+<div class="build-subnav" aria-label="Build navigation">
+  <div class="wrap">
+    <a href="work.html" class="nav-back" aria-label="Back to selected work">&larr; Back to selected work</a>
+  </div>
+</div>
+
 <main>
   <section class="detail-hero">
     <div class="wrap">
-      <div class="build-nav">
-        <a href="work.html" class="btn btn-ghost build-back">&larr; Back to selected work</a>
+      <div class="build-nav build-nav--switcher-only">
         <div class="build-switcher">
           <label for="deck-select-top" class="build-switcher-label">Other sample presentations</label>
           <select id="deck-select-top" class="build-select" data-deck-select aria-label="Switch to another sample presentation"></select>
@@ -118,12 +122,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261113b"></script>
-<script src="reveal.js?v=20261113b"></script>
-<script src="works.js?v=20261113b"></script>
-<script src="build-nav.js?v=20261113b"></script>
-<script src="platforms.js?v=20261113b"></script>
-<script src="build-detail.js?v=20261113b"></script>
+<script src="theme.js?v=20261113c"></script>
+<script src="reveal.js?v=20261113c"></script>
+<script src="works.js?v=20261113c"></script>
+<script src="build-nav.js?v=20261113c"></script>
+<script src="platforms.js?v=20261113c"></script>
+<script src="build-detail.js?v=20261113c"></script>
 <script>
 initDeckNav('job-costing-deck.html');
 initDetailNavScroll();
