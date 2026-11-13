@@ -478,9 +478,9 @@ footer{border-top:1px solid var(--hair);padding:40px 0}
 }
 .build-showcase-main{min-width:0}
 .build-rail{
-  position:sticky;top:96px;align-self:start;
+  position:static;align-self:start;
   display:flex;flex-direction:column;gap:16px;
-  width:100%;max-height:calc(100vh - 112px);overflow-y:auto;
+  width:100%;
 }
 /* rail blocks are <section>s, so they opt out of the 96px page-section padding */
 .rail-block{display:flex;flex-direction:column;gap:10px;padding:0}
@@ -888,3 +888,8 @@ body.lightbox-open{overflow:hidden}
 }
 
 :focus-visible{outline:2.5px solid var(--brand);outline-offset:3px;border-radius:4px}
+
+/* 12 Nov 2026 fixes: the rail's call to action sits above the spec; the phone menu's close button sits above the drawer; hero mock labels fit */
+.build-rail .rail-spec{order:2}
+body.mobile-nav-open header.nav{z-index:110}
+.hero .row-label{flex:0 0 13ch;width:13ch;min-width:13ch}

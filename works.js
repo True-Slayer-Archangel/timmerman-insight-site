@@ -43,6 +43,7 @@ var works = [
   },
   {
     id: 'job-costing',
+    linkLabel: 'View tracker',
     title: 'Job Costing and Profitability Tracker',
     category: 'dashboard',
     image: 'assets/job-costing/cover.webp',
@@ -63,6 +64,7 @@ var works = [
   },
   {
     id: 'multifamily-value-add',
+    linkLabel: 'View model',
     title: 'Multifamily Value Add Acquisition Model',
     category: 'dashboard',
     image: 'assets/multifamily-value-add/cover.webp',
@@ -70,11 +72,12 @@ var works = [
     blurb: 'A thirteen tab Excel workbook, with a Google Sheets version, that underwrites a value add apartment acquisition one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model follows it month by month through downtime and lease up to the renovated rent, then sizes the loan, prices the exit, and splits the returns between investors and sponsor. 19 built in checks sit underneath.',
     tags: ['Excel', 'Google Sheets', 'Real estate underwriting', 'LP and GP waterfall'],
     featured: true,
-    interactiveUrl: 'builds/multifamily-memorandum/',
-    interactiveLabel: 'memorandum'
+    // interactiveUrl: 'builds/multifamily-memorandum/',  (hidden 12 Nov 2026 with the memorandum)
+    // interactiveLabel: 'memorandum'  (hidden 12 Nov 2026 with the memorandum)
   },
   {
     id: 'saas-model',
+    linkLabel: 'View model',
     title: '3 Statement SaaS Financial Model',
     category: 'dashboard',
     image: 'assets/saas-model/cover.webp',
@@ -85,6 +88,7 @@ var works = [
   },
   {
     id: 'budget-vs-actuals',
+    linkLabel: 'View tracker',
     title: 'Budget vs Actuals Tracker',
     category: 'dashboard',
     image: 'assets/budget-vs-actuals/cover.webp',
@@ -93,6 +97,7 @@ var works = [
     tags: ['Excel', 'Google Sheets', 'Budget vs actuals', 'Full year outlook'],
     featured: true
   },
+  /* Hidden 12 Nov 2026 until the memorandum shows the v2 deal (it still has placeholders and v1 figures).
   {
     id: 'multifamily-memorandum',
     title: 'Multifamily Value Add Investment Memorandum',
@@ -107,8 +112,10 @@ var works = [
     openInNewTab: true,
     featured: false
   },
+  */
   {
     id: 'automated-report-system',
+    linkLabel: 'View report',
     title: 'Automated Monthly Report System',
     category: 'automation',
     image: 'assets/automated-report-dashboard.webp',
