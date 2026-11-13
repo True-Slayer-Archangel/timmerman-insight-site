@@ -918,3 +918,25 @@ body.mobile-nav-open header.nav{z-index:110}
 .build-next__link:hover .build-next__title{color:var(--brand)}
 .build-next__cta{display:flex;flex-wrap:wrap;gap:10px}
 #work-filter{display:none}
+
+/* 13 Nov 2026, round 6: one sticky project bar (back link, previous and next, switcher) that stays under the header while scrolling */
+.build-pager{display:flex;align-items:center;gap:6px;font-size:14px}
+.build-pager__link{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid var(--hair-strong);border-radius:11px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:500;transition:border-color .18s ease,color .18s ease}
+.build-pager__link:hover{border-color:var(--brand);color:var(--brand)}
+.build-pager__link:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px}
+.build-pager__count{padding:0 6px;font-size:13px;color:var(--muted);white-space:nowrap}
+@media (max-width:680px){
+  .build-back__long,.build-pager__lbl{display:none}
+  .detail-page:has(#nav.scrolled) .build-nav .build-back{display:inline-flex}
+  .detail-page:has(#nav.scrolled) .build-nav .build-switcher{display:none}
+  .detail-page:has(#nav.scrolled) .build-nav{flex-wrap:nowrap}
+}
+@media (max-width:680px){
+  .detail-page .build-nav .build-back{width:auto;flex:0 0 auto}
+  .detail-page .build-nav .build-back .build-back__long{display:none}
+  .detail-page:has(#nav.scrolled) .build-nav{gap:10px}
+}
+@media (max-width:680px){
+  .detail-page .build-nav{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .detail-page .build-nav .build-switcher{flex:1 1 100%}
+}

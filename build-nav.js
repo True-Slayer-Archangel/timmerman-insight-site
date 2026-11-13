@@ -44,7 +44,8 @@ function initWorkBackLinks(categoryOverride) {
     if (target === 'work.html' || target.indexOf('work.html?') === 0 || target === 'index.html#work') {
       link.href = href;
       link.setAttribute('aria-label', label);
-      link.innerHTML = '&larr; ' + label;
+      var words = label.split(' ');
+      link.innerHTML = '<span>&larr; ' + (words.length > 3 ? words.slice(0, 2).join(' ') + ' <span class="build-back__long">' + words.slice(2, -1).join(' ') + ' </span>' + words[words.length - 1] : label) + '</span>';
     }
   });
 }
