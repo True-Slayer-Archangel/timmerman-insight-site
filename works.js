@@ -37,7 +37,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/operational-finance-control/cover.webp',
     href: 'operational-finance-control.html',
-    blurb: 'A fourteen tab Excel workbook, with a Google Sheets version, for a business whose clients prepay and whose vendors bill later. It works out how much of the bank balance is really free to use at any month end, after client money held, vendor invoices, spend not yet invoiced, and the card balance. Eight controls, a three month forecast, and 24 built in checks sit on top.',
+    blurb: 'How much of the bank balance is free to spend? For a business whose clients prepay and whose vendors bill later, this workbook takes out client money held, unpaid vendor invoices, spend not yet invoiced, and the card balance at any month end. Eight controls, a three month forecast, and 24 checks, across fourteen tabs.',
     tags: ['Excel', 'Google Sheets', 'Working capital', 'Cash forecast'],
     featured: true
   },
@@ -48,7 +48,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/job-costing/cover.webp',
     href: 'job-costing.html',
-    blurb: 'A fifteen tab Excel workbook, with a Google Sheets version, that turns job, invoice, and cost exports into a WIP schedule: percent complete, earned revenue, over and under billing, receivables, and projected margin for every job. A filtered dashboard, a job drill down, and 30 built in checks sit on top.',
+    blurb: 'Turns job, invoice, and cost exports into a WIP schedule with percent complete, earned revenue, over and under billing, receivables, and projected margin for every job. A filtered dashboard, a drill down for any job, and 30 checks sit on top.',
     tags: ['Excel', 'Google Sheets', 'WIP schedule', 'Job costing'],
     featured: true
   },
@@ -58,7 +58,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/pharmacray/cover.webp',
     href: 'pharmacray.html',
-    blurb: 'A fourteen tab Excel workbook, with a Google Sheets version, for an independent retail pharmacy. It scores twenty measures against their targets for any month, from net margin after DIR to star adherence, and shows what each PBM really pays, when the counter is busy, what to reorder, and which patients to call. 25 built in checks sit underneath.',
+    blurb: 'Built for an independent pharmacy. Pick a month and it scores twenty measures against target, from net margin after DIR to star adherence, then shows what each PBM really pays, when the counter is busiest, what to reorder, and which patients to call. 25 checks run underneath.',
     tags: ['Excel', 'Google Sheets', 'Pharmacy KPIs', 'DIR and reimbursement'],
     featured: false
   },
@@ -69,7 +69,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/multifamily-value-add/cover.webp',
     href: 'multifamily-value-add.html',
-    blurb: 'A thirteen tab Excel workbook, with a Google Sheets version, that underwrites a value add apartment acquisition one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model follows it month by month through downtime and lease up to the renovated rent, then sizes the loan, prices the exit, and splits the returns between investors and sponsor. 19 built in checks sit underneath.',
+    blurb: 'Underwrites a value add apartment deal one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model tracks it through downtime and lease up to the new rent. From there it sizes the loan, prices the exit, and splits the returns between investors and sponsor, with 19 checks along the way.',
     tags: ['Excel', 'Google Sheets', 'Real estate underwriting', 'LP and GP waterfall'],
     featured: true,
     // interactiveUrl: 'builds/multifamily-memorandum/',  (hidden 12 Nov 2026 with the memorandum)
@@ -82,7 +82,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/saas-model/cover.webp',
     href: 'saas-model.html',
-    blurb: 'A fifteen tab Excel workbook, with a Google Sheets version, that plans a SaaS company month by month from its own books to December 2029. Self serve and sales led ARR come from their drivers, the income statement, balance sheet, and cash flow are linked and balance every month, and Base, Downside, and Upside run side by side. A driver tree shows where each year\'s ARR comes from, and 21 built in checks sit underneath.',
+    blurb: 'Plans a SaaS company month by month, from its own actuals through December 2029. Self serve and sales led ARR are built from their drivers, the three statements balance every month, and Base, Downside, and Upside run side by side. A driver tree shows where each year\'s ARR comes from, and 21 checks run underneath.',
     tags: ['Excel', 'Google Sheets', 'SaaS metrics', 'Scenarios'],
     featured: true
   },
@@ -93,7 +93,7 @@ var works = [
     category: 'dashboard',
     image: 'assets/budget-vs-actuals/cover.webp',
     href: 'budget-vs-actuals.html',
-    blurb: 'An eleven tab Excel workbook, with a Google Sheets version, that turns a budget export and a raw GL export into spend against plan for every department and category: budget to date, actual spend, the gap in dollars and percent, a full year outlook, and the budget left to spend. A filtered dashboard, a department drill down, and 26 built in checks sit on top.',
+    blurb: 'Drop in a budget export and a raw GL export, and it shows spend against plan for every department and category: budget to date, actual, the gap in dollars and percent, the full year outlook, and what\'s left to spend. Comes with a filtered dashboard, a department drill down, and 26 checks.',
     tags: ['Excel', 'Google Sheets', 'Budget vs actuals', 'Full year outlook'],
     featured: true
   },
@@ -120,7 +120,7 @@ var works = [
     category: 'automation',
     image: 'assets/automated-report-dashboard.webp',
     href: 'automated-report-system.html',
-    blurb: 'A Google Sheets revenue report that updates itself, with an Excel version of the same report. One Config tab sets the company, title, target, and recipient list. The dashboard rebuilds from raw transactions and a scheduled Apps Script emails the finished report each month.',
+    blurb: 'A monthly revenue report in Google Sheets, with an Excel version. One Config tab sets the company, title, target, and recipients. The dashboard rebuilds from raw transactions, and a scheduled Apps Script emails the finished report each month.',
     tags: ['Google Sheets', 'Google Apps Script', 'Scheduled email', 'Excel', 'SUMIFS'],
     featured: true
   },
