@@ -940,3 +940,44 @@ body.mobile-nav-open header.nav{z-index:110}
   .detail-page .build-nav{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between}
   .detail-page .build-nav .build-switcher{flex:1 1 100%}
 }
+
+/* ===== 14 Nov 2026: light editorial look. Both themes kept; the toggle and the system default work as before ===== */
+:root{
+  --canvas:#FBFAF7;--surface:#FFFFFF;--ink:#1A1A18;--ink-soft:#3B3A35;--muted:#6B675E;
+  --hair:#E8E4DB;--hair-strong:#D7D2C6;--brand:#0E7C66;--brand-press:#0A6353;--brand-tint:#E7F3EE;--accent-text:#0E7C66;
+  --band-bg:#1A1A18;--band-fg:#FBFAF7;--band-muted:#B5AFA3;--band-accent:#8FDCC4;
+  --nav-bg:rgba(251,250,247,.86);--nav-bg-scrolled:rgba(251,250,247,.96);
+  --radius:10px;--radius-sm:8px;
+  --shadow:0 1px 2px rgba(26,26,24,.04);
+  --shadow-lift:0 1px 3px rgba(26,26,24,.06),0 12px 28px -18px rgba(26,26,24,.22);
+  --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{
+  --canvas:#141311;--surface:#1C1B18;--ink:#EEEBE4;--ink-soft:#D0CBC1;--muted:#A09A8E;
+  --hair:#2D2B27;--hair-strong:#3B3833;--brand:#0E7C66;--brand-press:#0A6353;--brand-tint:#17302A;--accent-text:#5CC9A7;
+  --band-bg:#0D0C0B;--band-fg:#EEEBE4;--band-muted:#A09A8E;--band-accent:#8FDCC4;
+  --nav-bg:rgba(20,19,17,.86);--nav-bg-scrolled:rgba(20,19,17,.96);
+  --shadow:0 1px 2px rgba(0,0,0,.25);
+  --shadow-lift:0 1px 3px rgba(0,0,0,.3),0 12px 28px -18px rgba(0,0,0,.55);
+}
+h1,h2,h3,h4,.sec-head h2{font-family:var(--display);letter-spacing:-.01em}
+.hero h1{font-weight:600;letter-spacing:-.015em;line-height:1.05}
+.hero h1 .hl,.hl{color:var(--accent-text)}
+.eyebrow{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:15px;font-weight:600;color:var(--accent-text)}
+/* eyebrow / labels */ .eyebrow,
+.tag,
+/* right rail */ .rail-heading,
+.spec-label,
+.build-switcher-label,
+.work-thumb__soon,
+.work-thumb__badge{text-transform:none;letter-spacing:0}
+.tag{font-size:12.5px}
+.hero-grid-bg{display:none}
+.work-vis{background:var(--surface)}
+.btn{border-radius:8px}
+.btn-primary,.btn-primary:hover{box-shadow:none;transform:none}
+.work:hover{transform:none}
+.stat .num{font-family:var(--display);font-weight:600;letter-spacing:-.01em}
+@media (max-width:460px){.hero-trust .dot{display:none}}

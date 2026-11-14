@@ -133,12 +133,10 @@ function renderInteractiveCta(work) {
   if (existing) existing.remove();
 
   var link = document.createElement('a');
-  link.className = 'btn btn-primary';
+  link.className = 'btn btn-ghost';
   link.href = work.interactiveUrl.trim();
-  link.target = '_blank';
-  link.rel = 'noopener';
   link.setAttribute('data-interactive-cta', '');
-  link.innerHTML = getInteractiveButtonText(work) + ' <span class="btn-arrow">&rarr;</span>';
+  link.innerHTML = (work.interactiveText || getInteractiveButtonText(work)) + ' <span class="btn-arrow">&rarr;</span>';
   cta.insertBefore(link, cta.firstChild);
 }
 

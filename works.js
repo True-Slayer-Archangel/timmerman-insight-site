@@ -72,8 +72,9 @@ var works = [
     blurb: 'Underwrites a value add apartment deal one unit at a time. Each unit is renovated when its lease ends, as fast as the crew allows, and the model tracks it through downtime and lease up to the new rent. From there it sizes the loan, prices the exit, and splits the returns between investors and sponsor, with 19 checks along the way.',
     tags: ['Excel', 'Google Sheets', 'Real estate underwriting', 'LP and GP waterfall'],
     featured: true,
-    // interactiveUrl: 'builds/multifamily-memorandum/',  (hidden 12 Nov 2026 with the memorandum)
-    // interactiveLabel: 'memorandum'  (hidden 12 Nov 2026 with the memorandum)
+    interactiveUrl: 'builds/multifamily-memorandum/',
+    interactiveLabel: 'memorandum',
+    interactiveText: 'Read the investment memo'
   },
   {
     id: 'saas-model',
@@ -97,7 +98,6 @@ var works = [
     tags: ['Excel', 'Google Sheets', 'Budget vs actuals', 'Full year outlook'],
     featured: true
   },
-  /* Hidden 12 Nov 2026 until the memorandum shows the v2 deal (it still has placeholders and v1 figures).
   {
     id: 'multifamily-memorandum',
     title: 'Multifamily Value Add Investment Memorandum',
@@ -106,13 +106,11 @@ var works = [
     livePreview: true,
     href: 'builds/multifamily-memorandum/',
     previewImage: 'assets/logos/web-deck.svg',
-    blurb: 'Single page interactive investment memorandum for a value add multifamily acquisition.',
-    tags: ['Real estate', 'Investment memo', 'Interactive'],
-    linkLabel: 'Open live page',
-    openInNewTab: true,
+    blurb: 'An investment memo for Alder Court Apartments, built on the Multifamily model: the plan, NOI, financing, returns, sensitivity, and exit.',
+    tags: ['Real estate', 'Investment memo'],
+    linkLabel: 'Read the memo',
     featured: false
   },
-  */
   {
     id: 'automated-report-system',
     linkLabel: 'View report',
