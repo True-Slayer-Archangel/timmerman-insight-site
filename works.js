@@ -389,9 +389,10 @@ function isWorkGalleryCategory(category) {
   return WORK_FILTERS.some(function(f) { return f.id === category && f.id !== 'all'; });
 }
 
-function getWorkGalleryHref(category) {
-  if (!isWorkGalleryCategory(category)) return 'work.html';
-  return 'work.html?category=' + encodeURIComponent(category);
+// Back links always open the whole gallery. They used to open it filtered to the
+// project's own category, and the filter bar is hidden, so there was no way back to everything.
+function getWorkGalleryHref() {
+  return 'work.html';
 }
 
 function hasVideo(w) {
@@ -405,14 +406,9 @@ function getWorkBackLabel(category) {
   return 'Back to portfolio';
 }
 
+// The gallery shows all work, including for old links such as work.html?category=ppt.
 function readWorkGalleryFilter() {
-  var params = new URLSearchParams(window.location.search);
-  var category = params.get('category');
-  if (!category && window.location.hash) {
-    category = window.location.hash.replace(/^#/, '');
-  }
-  if (!isWorkGalleryCategory(category)) return 'all';
-  return getGalleryWorks(category).length ? category : 'all';
+  return 'all';
 }
 
 function getWorkForCurrentPage() {
