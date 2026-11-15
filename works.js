@@ -116,10 +116,10 @@ var works = [
     linkLabel: 'View report',
     title: 'Automated Monthly Report System',
     category: 'automation',
-    image: 'assets/automated-report-dashboard.webp',
+    image: 'assets/automated-report-system/cover.webp',
     href: 'automated-report-system.html',
-    blurb: 'A monthly revenue report in Google Sheets, with an Excel version. One Config tab sets the company, title, target, and recipients. The dashboard rebuilds from raw transactions, and a scheduled Apps Script emails the finished report each month.',
-    tags: ['Google Sheets', 'Google Apps Script', 'Scheduled email', 'Excel', 'SUMIFS'],
+    blurb: 'A one page monthly revenue report that builds itself from a sales ledger. The workbook writes the headline and the commentary, marks what moved more than a threshold, and runs 15 checks. In Google Sheets a script emails the page as a PDF on a schedule, holds the send when a check fails, and logs every run. An Excel version carries the same report.',
+    tags: ['Google Sheets', 'Google Apps Script', 'Scheduled email', 'Excel'],
     featured: true
   },
   {

@@ -11,11 +11,11 @@
 })();
 </script>
 <title>Automated Monthly Report System · Omari Timmerman</title>
-<meta name="description" content="A Google Sheets monthly revenue report, with an Excel version, built on a Config tab, SUMIFS calculations, named ranges, and a scheduled Apps Script that emails the finished report each month.">
+<meta name="description" content="A one page monthly revenue report in Google Sheets, with an Excel version, that builds itself from a sales ledger, writes its own headline, runs 15 checks, and emails itself as a PDF on a schedule.">
 <link rel="canonical" href="https://timmermaninsight.com/automated-report-system.html">
 <meta property="og:url" content="https://timmermaninsight.com/automated-report-system.html">
 <meta property="og:title" content="Automated Monthly Report System · Omari Timmerman">
-<meta property="og:description" content="A Google Sheets monthly revenue report, with an Excel version, built on a Config tab, SUMIFS calculations, named ranges, and a scheduled Apps Script that emails the finished report each month.">
+<meta property="og:description" content="A one page monthly revenue report in Google Sheets, with an Excel version, that builds itself from a sales ledger, writes its own headline, runs 15 checks, and emails itself as a PDF on a schedule.">
 <meta property="og:image" content="https://timmermaninsight.com/assets/og-default.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://timmermaninsight.com/assets/og-default.webp">
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261114d">
+<link rel="stylesheet" href="styles.css?v=20261115a">
 </head>
 <body class="detail-page">
 
@@ -31,10 +31,6 @@
   <div class="wrap nav-inner">
     <div class="nav-lead">
       <a href="index.html" class="brand"><span class="mark">OT</span> Omari Timmerman</a>
-      <div class="nav-build-switcher">
-        <label for="build-select-nav" class="visually-hidden">Other sample builds</label>
-        <select id="build-select-nav" class="build-select" data-build-select aria-label="Switch to another sample build"></select>
-      </div>
     </div>
     <nav class="nav-links" aria-label="Portfolio sections">
       <a href="index.html#services">Services</a>
@@ -74,15 +70,52 @@
       <header class="build-header reveal">
         <span class="eyebrow">Sample build</span>
         <h1>Automated Monthly Report System</h1>
-        <p class="summary">A monthly revenue report that maintains itself. The Config tab is the single control panel: company name, report title, reporting month, revenue target, variance threshold, and the email recipient list. Change any of those in one place and the report updates.</p>
+        <p class="summary">A one page monthly revenue report that builds itself from a sales ledger. The workbook writes the headline and the commentary, marks what moved more than a threshold, and runs 15 checks. In Google Sheets a script emails the page as a PDF on a schedule, holds the send when a check fails, and logs every run. An Excel version carries the same report.</p>
         <div class="chips">
           <span class="chip">Google Sheets</span>
           <span class="chip">Google Apps Script</span>
           <span class="chip">Scheduled email</span>
           <span class="chip">Excel</span>
-          <span class="chip">SUMIFS</span>
         </div>
       </header>
+
+      <div class="stats-intro reveal">
+        <span class="eyebrow outputs-label">Illustrative sample outputs from the bundled model</span>
+      </div>
+      <div class="stats-grid reveal" role="group" aria-label="Sample outputs" style="margin-top:28px">
+        <div class="stat">
+          <div class="num">$1.29M</div>
+          <div class="lab">Revenue in the June 2026 report</div>
+        </div>
+        <div class="stat">
+          <div class="num">+2.2%</div>
+          <div class="lab">Against target, and +5.3% on May</div>
+        </div>
+        <div class="stat">
+          <div class="num">1,001</div>
+          <div class="lab">Orders in the Sales Ledger behind it</div>
+        </div>
+        <div class="stat">
+          <div class="num">15</div>
+          <div class="lab">Checks that must pass before it goes out</div>
+        </div>
+        <div class="stat">
+          <div class="num">1 page</div>
+          <div class="lab">The whole report, as a PDF</div>
+        </div>
+        <div class="stat">
+          <div class="num">Day 1, 8 AM</div>
+          <div class="lab">When the script sends it</div>
+        </div>
+        <div class="stat">
+          <div class="num">9 runs</div>
+          <div class="lab">In the Run Log, one of them held</div>
+        </div>
+        <div class="stat">
+          <div class="num">0</div>
+          <div class="lab">Figures or sentences typed by hand</div>
+        </div>
+      </div>
 
       <div class="build-showcase">
         <div class="build-showcase-main">
@@ -94,16 +127,17 @@
                 <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
               </div>
               <div class="app-frame__body">
-                <img id="preview-img" src="assets/automated-report-dashboard.webp" alt="Automated Monthly Report System dashboard preview">
+                <img id="preview-img" src="assets/automated-report-system/01-report.webp" alt="Report tab with a one page monthly revenue report laid out as a sheet of paper: a headline, five figures in a ruled band, four sentences of commentary, a chart of thirteen months against target, and tables by region, product, sales rep, and what moved. Beside the page, a panel with the delivery status and the text of the email">
               </div>
             </div>
-            <figcaption class="preview-caption" id="preview-caption">Dashboard · KPI cards · revenue by region · highlights</figcaption>
+            <figcaption class="preview-caption" id="preview-caption">Report · the page that goes out · whether it is ready to send · the email that carries it</figcaption>
           </figure>
 
           <div class="build-desc build-desc--under-preview">
-            <p>Raw transactions sit on a separate tab. A calculation zone uses SUMIFS with EOMONTH and EDATE to build the current period and the prior period automatically, so moving the reporting month forward recomputes every comparison. The Dashboard reads named ranges rather than cell addresses, so the layout stays stable as the data grows.</p>
-            <p>The same named ranges feed a scheduled Google Apps Script that emails the finished report to the recipient list on a set day each month. The send schedule is set from a menu inside the spreadsheet, so changing the timing or the recipients needs no code editing. An Excel version carries the same report and Config tab for teams on Microsoft 365.</p>
-            <p>KPI cards cover total revenue, percent to target, month over month growth, and top region. A revenue by region table shows current, prior, and MoM columns. A highlights panel calls out top region, top rep, top product, and fastest mover.</p>
+            <p>The sample is Northwind Trading Co., a fictional company with four sales regions, three products, and eight sales reps. Its Sales Ledger holds 1,001 orders from January 2025 to June 2026, and Targets holds a target for each region and month. Settings names the report month, and everything else follows from it: the month before, the same month a year earlier, the year to date, and the thirteen months on the chart.</p>
+            <p>The Report tab is the page itself, laid out as a sheet of paper: a masthead, a headline, five figures in a ruled band, four sentences of commentary, thirteen months against target, and tables by region, product, sales rep, and what moved. Every figure is a formula over the ledger, and so is every sentence, so the page for a new month is written the moment the month changes. Beside the page sit the delivery status and the email that carries it.</p>
+            <p>In the Google Sheets edition a script does the sending. On the day and hour set on Settings it moves the report month forward, tests the checks, and emails the recipients the commentary with the page attached as a one page PDF. If a check fails, nothing goes to the recipients: the owner gets the reason, and the Run Log records the send as held. A Report menu sends a test to the owner, sends the report on demand, and turns the schedule on or off.</p>
+            <p>Fifteen checks sit between the ledger and a send: the regions, products, and sales reps must add up to the ledger, every row must match the lists, and the month must have data and a target. The Run Log keeps the revenue each report went out with and shows when the ledger has changed since, as it has here for February, where a credit note was booked after the report went out. Northwind Trading Co. is fictional and every figure is illustrative.</p>
           </div>
         </div>
 
@@ -150,33 +184,39 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261114d"></script>
-<script src="reveal.js?v=20261114d"></script>
-<script src="works.js?v=20261114d"></script>
-<script src="build-nav.js?v=20261114d"></script>
-<script src="platforms.js?v=20261114d"></script>
-<script src="build-detail.js?v=20261114d"></script>
+<script src="theme.js?v=20261115a"></script>
+<script src="reveal.js?v=20261115a"></script>
+<script src="works.js?v=20261115a"></script>
+<script src="build-nav.js?v=20261115a"></script>
+<script src="platforms.js?v=20261115a"></script>
+<script src="build-detail.js?v=20261115a"></script>
 <script>
   initBuildNav('automated-report-system.html');
   initDetailNavScroll();
   initBuildDetail({
-    appLabel: 'Google Sheets',
+    appLabel: 'Microsoft Excel',
     views: [
-      { name: 'Dashboard', img: 'assets/automated-report-dashboard.webp', caption: 'Dashboard · KPI cards · revenue by region · highlights' },
-      { name: 'Config', img: 'assets/automated-report-config.webp', caption: 'Config tab · company, title, target, recipients' },
-      { name: 'Calculations', img: 'assets/automated-report-calculations.webp', caption: 'Working calculations · SUMIFS rollups · period logic' }
+      { name: 'Report', img: 'assets/automated-report-system/01-report.webp', caption: 'Report · the page that goes out · whether it is ready to send · the email that carries it', alt: 'Report tab with a one page monthly revenue report laid out as a sheet of paper: a headline, five figures in a ruled band, four sentences of commentary, a chart of thirteen months against target, and tables by region, product, sales rep, and what moved. Beside the page, a panel with the delivery status and the text of the email' },
+      { name: 'The PDF', img: 'assets/automated-report-system/02-the-pdf.webp', caption: 'The PDF · one letter page, as the recipients get it', alt: 'The one page report as a PDF: masthead, headline, five figures, commentary, a thirteen month chart of revenue against target, and four tables', app: 'PDF, as emailed' },
+      { name: 'Start Here', img: 'assets/automated-report-system/03-start-here.webp', caption: 'Start Here · status · this month · go to · how the report builds itself', alt: 'Start Here tab with check and delivery status, this month at a glance, links to every tab, how the report builds itself, steps to use it for another company, a color key, and how to read the Report' },
+      { name: 'Detail', img: 'assets/automated-report-system/04-detail.webp', caption: 'Detail · thirteen months by region · region by product · the change on the month before · year to date · every sales rep', alt: 'Detail tab with thirteen months of revenue by region against target, a stacked column chart of the same months, region by product for the month, the change on the month before with cells beyond the threshold marked, the year to date by region, and every sales rep ranked' },
+      { name: 'Run Log', img: 'assets/automated-report-system/05-run-log.webp', caption: 'Run Log · one row a send · a send that was held · a month that changed after it went out', alt: 'Run Log tab with nine runs: the time, type, report month, status, recipients, revenue reported, and checks for each, one run held and sent later that day, and a column that shows February changed in the ledger after its report went out' },
+      { name: 'Checks', img: 'assets/automated-report-system/06-checks.webp', caption: 'Checks · 15 tests between the ledger and a send · each failure says what to do', alt: 'Checks tab listing reconciliations of the report against the ledger, data and settings tests, and capacity tests, all passing, with information lines below' },
+      { name: 'Settings', img: 'assets/automated-report-system/07-settings.webp', caption: 'Settings · report month and threshold · sender, day, hour, and time zone · recipients', alt: 'Settings tab with the company, report title, report month, and variance threshold, how the report goes out, and the list of recipients with a Yes or No for each' },
+      { name: 'Targets', img: 'assets/automated-report-system/08-targets.webp', caption: 'Targets · a target for each region and month · revenue from the ledger beside it', alt: 'Targets tab with monthly revenue targets by region from January 2025 to December 2026, the company total, and revenue from the ledger against it' },
+      { name: 'Sales Ledger', img: 'assets/automated-report-system/09-sales-ledger.webp', caption: 'Sales Ledger · one row an order · a month and a warning worked out for each row', alt: 'Sales Ledger tab with order number, date, region, sales rep, product, and revenue for each order, and calculated month and warning columns' },
+      { name: 'Lists', img: 'assets/automated-report-system/10-lists.webp', caption: 'Lists · the regions, products, and sales reps the ledger is checked against', alt: 'Lists tab with four regions, three products, and eight sales reps with their home regions, and notes on how the lists are used' }
     ],
-    platforms: [
-      { name: 'Excel',         url: 'https://timmermaninsights-my.sharepoint.com/:x:/g/personal/omari_timmermaninsight_com/IQBfSjKp0BoWTpPI9IkE-lTEAdMqYbgZwLl21t3xRH1dpAY?e=HmmuJe' },
-      { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets/d/1GSbgQSlmsRjyD2tN9tFNcH7rmEa_6lgFAshv9fV-VTU/edit?usp=sharing' },
-      { name: 'Power BI',      url: '' },
-      { name: 'Looker',        url: '' }
-    ],
+    platforms: [],
     whatsInside: [
-      { label: 'Tabs',         value: 'Config, Transactions, Dashboard' },
-      { label: 'Calculations', value: 'SUMIFS with EOMONTH and EDATE for current and prior periods' },
-      { label: 'Automation',   value: 'Scheduled email via spreadsheet menu' },
-      { label: 'Dashboard',    value: 'KPI cards, region table, highlights panel' }
+      { label: 'Tabs', value: '10: Start Here, Report, Detail, Run Log, Checks, Settings, Targets, Sales Ledger, Lists, and Engine' },
+      { label: 'Report', value: 'One portrait page: a headline, five figures, commentary, thirteen months against target, and four tables' },
+      { label: 'Written by formulas', value: 'The headline, the commentary, and the email text, from the month, the target, and the month before' },
+      { label: 'Automation', value: 'An Apps Script send on a monthly schedule, a test send, a hold when a check fails, and a PDF of the page' },
+      { label: 'Run Log', value: 'One row a send, with the revenue reported and whether the ledger has changed since' },
+      { label: 'Checks', value: '15 reconciliation, data, settings, and capacity tests, each with a fix' },
+      { label: 'Editions', value: 'Google Sheets with the script, and Excel with the same report, checks, and email text' },
+      { label: 'Note', value: 'Northwind Trading Co. is fictional. Every figure is illustrative.' }
     ]
   });
 </script>

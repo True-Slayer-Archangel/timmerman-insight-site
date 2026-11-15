@@ -192,7 +192,12 @@ function initViewTabs(views) {
     img.removeAttribute('height');
   }
 
+  // A view can name its own source in the frame bar (view.app); the others keep the page's label.
+  var frameLabel = document.getElementById('app-frame-label');
+  var baseLabel = frameLabel ? frameLabel.textContent : '';
+
   function applyView(view) {
+    if (frameLabel) frameLabel.textContent = view.app || baseLabel;
     if (view.video) showVideo(view);
     else showImage(view);
     syncPreviewZoom(!view.video);
