@@ -1003,3 +1003,8 @@ h1,h2,h3,h4,.sec-head h2{font-family:var(--display);letter-spacing:-.01em}
 }
 @media (max-width:345px){.build-pager__count{display:none}}
 @media (max-width:345px){.brand{font-size:14px}}
+
+/* 14 Nov 2026: the capabilities deck now has 20 slides. On wide screens the slide numbers share the bar, so every number shows without scrolling sideways. Phones keep the swipeable strip. */
+@media (min-width:681px){
+  .deck-jump .view-tab--num{flex:1 1 0;min-width:0;padding-left:0;padding-right:0}
+}
