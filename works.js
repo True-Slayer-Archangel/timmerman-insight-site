@@ -17,14 +17,26 @@
   Add `video: 'assets/apps/my-app-demo.mp4'` to the work entry here as well,
   so its gallery card gets a "Video demo" badge.
 
-  HOW TO VIDEOS (narrated, a few minutes long)
-  A "How to use it" button in the page header, and another in the screenshot frame's
-  bar, open the video in a dialog, with sound and chapter buttons: copy
-  .build-header__actions, the .app-frame__howto button (and the bar's
-  app-frame__bar--howto class) and <dialog id="how-to-use"> from
-  operational-finance-control.html. A link to the page with #how-to-use opens it.
-  Cloudflare Pages refuses any file over 25 MiB, so encode to about 1 Mbps
-  (H.264, +faststart). Add `video` to the work entry for the gallery badge.
+  HOW TO VIDEOS (narrated walkthroughs, a few minutes long)
+  Give a work a `howto` and its build page does the rest (initHowtoVideo in
+  build-detail.js): a "How to use it" button at the top of the rail's links,
+  above Excel, a smaller one in the screenshot frame's bar, and a pop-up player
+  with chapter buttons. The gallery card gets the "Video demo" badge, and a link
+  to the page with #how-to-use opens the pop-up. No page HTML to change.
+
+    howto: {
+      video: 'assets/<id>/how-to-use.mp4',          // H.264 with +faststart, under 25 MiB:
+                                                    // Cloudflare Pages refuses bigger files
+      poster: 'assets/<id>/how-to-use-poster.webp',  // 1600x900
+      length: '2:29',                               // on the rail button; the pop-up says 2 min 29 s
+      chapters: [                                   // [start in seconds, label]
+        [0, 'What it shows'],
+        [26, 'Assumptions']
+      ]
+      // note: 'narrated, with subtitles'           // optional; this is the default
+    }
+
+  Then bump ?v= on every page, so returning visitors get the new works.js.
 */
 var WORK_CAPS = { apps: 6, dashboard: 10, ppt: 4, html: 2, automation: 4 };
 
@@ -45,7 +57,21 @@ var works = [
     title: 'Operational Finance Control Tower',
     category: 'dashboard',
     image: 'assets/operational-finance-control/cover.webp',
-    video: 'assets/operational-finance-control/how-to-use.mp4',
+    howto: {
+      video: 'assets/operational-finance-control/how-to-use.mp4',
+      poster: 'assets/operational-finance-control/how-to-use-poster.webp',
+      length: '2:32',
+      chapters: [
+        [0, 'What it shows'],
+        [24, 'Assumptions'],
+        [36, 'Step 1: paste the data'],
+        [56.1, 'Step 2: fill in the dates'],
+        [72.3, 'Step 3: new campaigns'],
+        [83.4, 'Step 4: as of date and Checks'],
+        [99.9, 'Step 5: the Dashboard'],
+        [130.5, 'Cash and Forecast']
+      ]
+    },
     href: 'operational-finance-control.html',
     blurb: 'How much of the bank balance is free to spend? For a business whose clients prepay and whose vendors bill later, this workbook takes out client money held, unpaid vendor invoices, spend not yet invoiced, and the card balance at any month end. Eight controls, a three month forecast, and 24 checks, across fourteen tabs.',
     tags: ['Excel', 'Google Sheets', 'Working capital', 'Cash forecast'],
@@ -409,7 +435,9 @@ function getWorkGalleryHref() {
 }
 
 function hasVideo(w) {
-  return !!(w && typeof w.video === 'string' && w.video.trim());
+  if (!w) return false;
+  if (typeof w.video === 'string' && w.video.trim()) return true;
+  return !!(w.howto && typeof w.howto.video === 'string' && w.howto.video.trim());
 }
 
 function getWorkBackLabel(category) {

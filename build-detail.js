@@ -325,13 +325,130 @@ function initDetailReveal() {
   initReveal(document, { detail: true });
 }
 
-// "How to use it": a button (data-howto-open) opens the narrated video in a dialog (#how-to-use) and plays it.
-// Chapter buttons jump to each part and the chapter playing is marked. Closing (button, Escape or a click
-// outside) pauses it. A link to #how-to-use opens the dialog on arrival, paused, since nobody clicked yet.
-function initHowtoVideo() {
-  var dialog = document.getElementById('how-to-use');
-  var video = dialog ? dialog.querySelector('video') : null;
-  if (!video) return;
+// How to videos (narrated walkthroughs). A work in works.js with a `howto` gets, on its build page:
+// a "How to use it" button at the top of the rail's links (above Excel; in a block of its own when the
+// page has no links), a smaller one in the screenshot frame's bar before Full size, and a pop-up player
+// with chapter buttons. Opening from a button plays it; closing (X, Escape or a click outside) pauses it;
+// the chapter playing is marked; a link to the page with #how-to-use opens it paused. Fields: see works.js.
+function initHowtoVideo(workOverride) {
+  var work = workOverride
+    || (typeof getWorkForCurrentPage === 'function' ? getWorkForCurrentPage() : null);
+  var howto = work && work.howto;
+  if (!howto || !howto.video || document.getElementById('how-to-use')) return;
+
+  var dialog = buildHowtoDialog(work, howto);
+  document.body.appendChild(dialog);
+  addHowtoRailButton(howto);
+  addHowtoFrameButton();
+  wireHowtoDialog(dialog);
+}
+
+function howtoEscape(text) {
+  return String(text == null ? '' : text)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// 99.9 -> "1:39", as a player shows it
+function howtoClock(seconds) {
+  var s = Math.max(0, Math.floor(Number(seconds) || 0));
+  var r = s % 60;
+  return Math.floor(s / 60) + ':' + (r < 10 ? '0' : '') + r;
+}
+
+// "2:32" -> "2 min 32 s"
+function howtoLongLength(length) {
+  var m = /^(\d+):(\d{2})$/.exec(String(length || '').trim());
+  if (!m) return String(length || '');
+  var min = parseInt(m[1], 10);
+  var sec = parseInt(m[2], 10);
+  return [min ? min + ' min' : '', sec ? sec + ' s' : ''].filter(Boolean).join(' ');
+}
+
+function howtoPlayIcon(size) {
+  return '<svg viewBox="0 0 24 24" width="' + size + '" height="' + size + '" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M9.75 7.6v8.8l7.1-4.4z" fill="#fff"/></svg>';
+}
+
+function howtoOpener(className, html) {
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = className;
+  button.setAttribute('data-howto-open', '');
+  button.setAttribute('aria-haspopup', 'dialog');
+  button.setAttribute('aria-controls', 'how-to-use');
+  button.innerHTML = html;
+  return button;
+}
+
+function addHowtoRailButton(howto) {
+  var button = howtoOpener('platform-link btn btn-ghost platform-link--howto',
+    '<span class="platform-link__icon">' + howtoPlayIcon(22) + '</span>' +
+    '<span class="platform-link__name">How to use it</span>' +
+    (howto.length ? '<span class="platform-link__len">' + howtoEscape(howto.length) + '</span>' : ''));
+
+  var section = document.getElementById('rail-platforms');
+  var links = document.getElementById('platform-links');
+  if (section && links && !section.hidden) {
+    links.insertBefore(button, links.firstChild);
+    return;
+  }
+  // No Excel or Google Sheets links on this page: the button gets a block of its own at the top of the rail.
+  var rail = document.querySelector('.build-rail');
+  if (!rail) return;
+  var block = document.createElement('div');
+  block.className = 'rail-block rail-howto';
+  var list = document.createElement('div');
+  list.className = 'platform-links';
+  list.appendChild(button);
+  block.appendChild(list);
+  rail.insertBefore(block, rail.firstChild);
+}
+
+function addHowtoFrameButton() {
+  var img = document.getElementById('preview-img');
+  var frame = img ? img.closest('.app-frame') : null;
+  var bar = frame ? frame.querySelector('.app-frame__bar') : null;
+  if (!bar) return;
+  bar.classList.add('app-frame__bar--howto');
+  var button = howtoOpener('app-frame__howto', howtoPlayIcon(14) + 'How to use it');
+  bar.insertBefore(button, bar.querySelector('.app-frame__zoom'));
+}
+
+function buildHowtoDialog(work, howto) {
+  var title = work.title || 'this build';
+  var parts = [howtoLongLength(howto.length), howto.note || 'narrated, with subtitles'].filter(Boolean);
+  var chapters = (howto.chapters || []).map(function(c) {
+    var start = Number(c[0]) || 0;
+    return '<li><button type="button" data-t="' + start + '"><span class="howto-dialog__t">' +
+      howtoClock(start) + '</span> ' + howtoEscape(c[1]) + '</button></li>';
+  }).join('');
+
+  var dialog = document.createElement('dialog');
+  dialog.className = 'howto-dialog';
+  dialog.id = 'how-to-use';
+  dialog.setAttribute('aria-labelledby', 'howto-title');
+  dialog.innerHTML =
+    '<div class="howto-dialog__inner">' +
+      '<div class="howto-dialog__head">' +
+        '<h2 class="howto-dialog__title" id="howto-title">How to use it</h2>' +
+        (parts.length ? '<span class="howto-dialog__len">' + howtoEscape(parts.join(' · ')) + '</span>' : '') +
+        '<button type="button" class="howto-dialog__close" data-howto-close aria-label="Close the video">' +
+          '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<video controls playsinline preload="none" width="1920" height="1080"' +
+        (howto.poster ? ' poster="' + howtoEscape(howto.poster) + '"' : '') +
+        ' aria-label="' + howtoEscape(['How to use the ' + title].concat(parts).join(', ')) + '">' +
+        '<source src="' + howtoEscape(howto.video) + '" type="video/mp4">' +
+        '<a href="' + howtoEscape(howto.video) + '">Watch the how to use video (MP4)</a>' +
+      '</video>' +
+      (chapters ? '<ol class="howto-dialog__chapters" aria-label="Jump to a part of the video">' + chapters + '</ol>' : '') +
+    '</div>';
+  return dialog;
+}
+
+function wireHowtoDialog(dialog) {
+  var video = dialog.querySelector('video');
   var openers = Array.prototype.slice.call(document.querySelectorAll('[data-howto-open]'));
   var buttons = Array.prototype.slice.call(dialog.querySelectorAll('[data-t]'));
   var starts = buttons.map(function(b) { return parseFloat(b.getAttribute('data-t')) || 0; });
