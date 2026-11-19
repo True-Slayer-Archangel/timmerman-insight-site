@@ -1050,6 +1050,18 @@ body.howto-is-open{overflow:hidden}
   .howto-dialog__chapters{gap:6px;padding:10px 10px 14px}
   .howto-dialog__chapters button{font-size:13.5px;padding:6px 10px}
 }
+/* the same button in the screenshot frame's bar, before Full size, so it is still there after the header scrolls away */
+.app-frame__howto{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--accent-text);
+  background:transparent;border:1px solid var(--hair-strong);border-radius:7px;
+  padding:4px 9px 4px 6px;cursor:pointer;line-height:1.2;white-space:nowrap;
+  transition:border-color .15s ease;
+}
+.app-frame__howto svg{color:var(--brand);flex-shrink:0}
+.app-frame__howto:hover{border-color:var(--brand)}
+.app-frame__howto + .app-frame__zoom{margin-left:0}
+@media (max-width:480px){.app-frame__bar--howto .app-frame__label{display:none}}
 /* phones on their side and other short screens: the video takes the height, the chapters scroll */
 @media (max-height:520px){
   .howto-dialog{width:min(calc(100vw - 20px), calc((100vh - 84px) * 16 / 9));width:min(calc(100vw - 20px), calc((100dvh - 84px) * 16 / 9))}

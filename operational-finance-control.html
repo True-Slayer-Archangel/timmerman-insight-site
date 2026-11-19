@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261118b">
+<link rel="stylesheet" href="styles.css?v=20261118c">
 </head>
 <body class="detail-page">
 
@@ -95,9 +95,10 @@
           <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Build views" hidden></div>
           <figure class="preview-figure">
             <div class="app-frame">
-              <div class="app-frame__bar">
+              <div class="app-frame__bar app-frame__bar--howto">
                 <span class="app-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
                 <span class="app-frame__label" id="app-frame-label">Microsoft Excel</span>
+                <button type="button" class="app-frame__howto" data-howto-open aria-haspopup="dialog" aria-controls="how-to-use"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M9.75 7.6v8.8l7.1-4.4z" fill="#fff"/></svg>How to use it</button>
               </div>
               <div class="app-frame__body">
                 <img id="preview-img" src="assets/operational-finance-control/01-dashboard.webp" alt="Cash control tower dashboard with a month end picker, a dark panel showing available operating cash against the minimum reserve, a bridge from cash in bank to available cash, eight controls marked clear, watch, or act, a stacked chart of where the cash sat each month with the forecast months, and client money held by campaign" loading="eager" decoding="async">
@@ -180,12 +181,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261118b"></script>
-<script src="reveal.js?v=20261118b"></script>
-<script src="works.js?v=20261118b"></script>
-<script src="build-nav.js?v=20261118b"></script>
-<script src="platforms.js?v=20261118b"></script>
-<script src="build-detail.js?v=20261118b"></script>
+<script src="theme.js?v=20261118c"></script>
+<script src="reveal.js?v=20261118c"></script>
+<script src="works.js?v=20261118c"></script>
+<script src="build-nav.js?v=20261118c"></script>
+<script src="platforms.js?v=20261118c"></script>
+<script src="build-detail.js?v=20261118c"></script>
 <script>
   initBuildNav('operational-finance-control.html');
   initDetailNavScroll();

@@ -18,8 +18,10 @@
   so its gallery card gets a "Video demo" badge.
 
   HOW TO VIDEOS (narrated, a few minutes long)
-  A "How to use it" button in the page header opens the video in a dialog, with sound
-  and chapter buttons: copy .build-header__actions and <dialog id="how-to-use"> from
+  A "How to use it" button in the page header, and another in the screenshot frame's
+  bar, open the video in a dialog, with sound and chapter buttons: copy
+  .build-header__actions, the .app-frame__howto button (and the bar's
+  app-frame__bar--howto class) and <dialog id="how-to-use"> from
   operational-finance-control.html. A link to the page with #how-to-use opens it.
   Cloudflare Pages refuses any file over 25 MiB, so encode to about 1 Mbps
   (H.264, +faststart). Add `video` to the work entry for the gallery badge.
