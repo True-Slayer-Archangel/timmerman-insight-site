@@ -129,6 +129,21 @@ var works = [
     title: 'Budget vs Actuals Tracker',
     category: 'dashboard',
     image: 'assets/budget-vs-actuals/cover.webp',
+    howto: {
+      video: 'assets/budget-vs-actuals/how-to-use.mp4',
+      poster: 'assets/budget-vs-actuals/how-to-use-poster.webp',
+      length: '2:29',
+      chapters: [
+        [0, 'What it shows'],
+        [26.1, 'Assumptions and Mappings'],
+        [42.3, 'Step 1: paste the GL export'],
+        [60.6, 'Step 2: update the budget'],
+        [71.1, 'Step 3: as of date'],
+        [79.8, 'Step 4: Checks'],
+        [95.4, 'Step 5: the Dashboard'],
+        [126.6, 'Variance and Department Detail']
+      ]
+    },
     href: 'budget-vs-actuals.html',
     blurb: 'Drop in a budget export and a raw GL export, and it shows spend against plan for every department and category: budget to date, actual, the gap in dollars and percent, the full year outlook, and what\'s left to spend. Comes with a filtered dashboard, a department drill down, and 26 checks.',
     tags: ['Excel', 'Google Sheets', 'Budget vs actuals', 'Full year outlook'],
