@@ -325,15 +325,25 @@ function initDetailReveal() {
   initReveal(document, { detail: true });
 }
 
-// A narrated how to video under the screenshots (.build-howto): each chapter button jumps to its part
-// and plays, and the chapter playing is marked. Pages without the block are left alone.
+// "How to use it": a button (data-howto-open) opens the narrated video in a dialog (#how-to-use) and plays it.
+// Chapter buttons jump to each part and the chapter playing is marked. Closing (button, Escape or a click
+// outside) pauses it. A link to #how-to-use opens the dialog on arrival, paused, since nobody clicked yet.
 function initHowtoVideo() {
-  var box = document.querySelector('.build-howto');
-  var video = box ? box.querySelector('video') : null;
+  var dialog = document.getElementById('how-to-use');
+  var video = dialog ? dialog.querySelector('video') : null;
   if (!video) return;
-  var buttons = Array.prototype.slice.call(box.querySelectorAll('[data-t]'));
-  if (!buttons.length) return;
+  var openers = Array.prototype.slice.call(document.querySelectorAll('[data-howto-open]'));
+  var buttons = Array.prototype.slice.call(dialog.querySelectorAll('[data-t]'));
   var starts = buttons.map(function(b) { return parseFloat(b.getAttribute('data-t')) || 0; });
+  var closeBtn = dialog.querySelector('[data-howto-close]');
+  var canDialog = typeof dialog.showModal === 'function';
+  var lastFocus = null;
+  var downOnBackdrop = false;
+
+  function play() {
+    var playing = video.play();
+    if (playing && typeof playing.catch === 'function') playing.catch(function() {});
+  }
 
   function mark() {
     var t = video.currentTime || 0;
@@ -353,14 +363,48 @@ function initHowtoVideo() {
     } else {
       video.addEventListener('loadedmetadata', function() { video.currentTime = t; }, { once: true });
     }
-    var playing = video.play();
-    if (playing && typeof playing.catch === 'function') playing.catch(function() {});
+    play();
     mark();
   }
 
-  buttons.forEach(function(b, i) {
-    b.addEventListener('click', function() { jump(starts[i]); });
-  });
+  function open(withSound) {
+    if (!canDialog) {
+      // A browser without <dialog> opens the video file itself.
+      var source = video.querySelector('source');
+      if (withSound && source) window.location.href = source.src;
+      return;
+    }
+    if (!dialog.open) {
+      lastFocus = document.activeElement;
+      dialog.showModal();
+      document.body.classList.add('howto-is-open');
+    }
+    if (withSound) play();
+  }
+
+  if (canDialog) {
+    dialog.addEventListener('close', function() {
+      video.pause();
+      document.body.classList.remove('howto-is-open');
+      if (window.location.hash === '#how-to-use' && window.history && history.replaceState) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    });
+    // A click on the backdrop lands on the dialog itself; clicks on the video and buttons land inside it.
+    dialog.addEventListener('pointerdown', function(e) { downOnBackdrop = e.target === dialog; });
+    dialog.addEventListener('click', function(e) {
+      if (e.target === dialog && downOnBackdrop) dialog.close();
+      downOnBackdrop = false;
+    });
+  }
+  if (closeBtn) closeBtn.addEventListener('click', function() { if (dialog.open) dialog.close(); });
+  openers.forEach(function(b) { b.addEventListener('click', function() { open(true); }); });
+  buttons.forEach(function(b, i) { b.addEventListener('click', function() { jump(starts[i]); }); });
   video.addEventListener('timeupdate', mark);
   video.addEventListener('seeked', mark);
+
+  function fromHash() { if (window.location.hash === '#how-to-use') open(false); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 }
