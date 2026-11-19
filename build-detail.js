@@ -12,6 +12,7 @@ function initBuildDetail(config) {
   initViewTabs(config.views || []);
   renderPlatformLinks(config.platforms || []);
   renderWhatsInside(config.whatsInside || []);
+  initHowtoVideo();
   initInteractiveCta();
   initReveal(document, { detail: true });
 }
@@ -322,4 +323,44 @@ function initPreviewZoom() {
 
 function initDetailReveal() {
   initReveal(document, { detail: true });
+}
+
+// A narrated how to video under the screenshots (.build-howto): each chapter button jumps to its part
+// and plays, and the chapter playing is marked. Pages without the block are left alone.
+function initHowtoVideo() {
+  var box = document.querySelector('.build-howto');
+  var video = box ? box.querySelector('video') : null;
+  if (!video) return;
+  var buttons = Array.prototype.slice.call(box.querySelectorAll('[data-t]'));
+  if (!buttons.length) return;
+  var starts = buttons.map(function(b) { return parseFloat(b.getAttribute('data-t')) || 0; });
+
+  function mark() {
+    var t = video.currentTime || 0;
+    var current = -1;
+    if (t > 0 || !video.paused) {
+      starts.forEach(function(start, i) { if (t + 0.05 >= start) current = i; });
+    }
+    buttons.forEach(function(b, i) {
+      if (i === current) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
+    });
+  }
+
+  function jump(t) {
+    if (video.readyState >= 1) {
+      video.currentTime = t;
+    } else {
+      video.addEventListener('loadedmetadata', function() { video.currentTime = t; }, { once: true });
+    }
+    var playing = video.play();
+    if (playing && typeof playing.catch === 'function') playing.catch(function() {});
+    mark();
+  }
+
+  buttons.forEach(function(b, i) {
+    b.addEventListener('click', function() { jump(starts[i]); });
+  });
+  video.addEventListener('timeupdate', mark);
+  video.addEventListener('seeked', mark);
 }

@@ -16,6 +16,12 @@
   Keep demo videos short (30 to 90 seconds), muted, MP4 (H.264), under ~8 MB.
   Add `video: 'assets/apps/my-app-demo.mp4'` to the work entry here as well,
   so its gallery card gets a "Video demo" badge.
+
+  HOW TO VIDEOS (narrated, a few minutes long)
+  These sit in their own "How to use it" block under the screenshots, with sound
+  and chapter buttons: copy the .build-howto block from operational-finance-control.html.
+  Cloudflare Pages refuses any file over 25 MiB, so encode to about 1 Mbps
+  (H.264, +faststart). Add `video` to the work entry for the gallery badge.
 */
 var WORK_CAPS = { apps: 6, dashboard: 10, ppt: 4, html: 2, automation: 4 };
 
@@ -36,6 +42,7 @@ var works = [
     title: 'Operational Finance Control Tower',
     category: 'dashboard',
     image: 'assets/operational-finance-control/cover.webp',
+    video: 'assets/operational-finance-control/how-to-use.mp4',
     href: 'operational-finance-control.html',
     blurb: 'How much of the bank balance is free to spend? For a business whose clients prepay and whose vendors bill later, this workbook takes out client money held, unpaid vendor invoices, spend not yet invoiced, and the card balance at any month end. Eight controls, a three month forecast, and 24 checks, across fourteen tabs.',
     tags: ['Excel', 'Google Sheets', 'Working capital', 'Cash forecast'],

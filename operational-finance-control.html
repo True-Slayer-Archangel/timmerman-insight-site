@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261115a">
+<link rel="stylesheet" href="styles.css?v=20261118a">
 </head>
 <body class="detail-page">
 
@@ -99,6 +99,34 @@
             <figcaption class="preview-caption" id="preview-caption">Dashboard · month end picker · available operating cash · cash bridge · eight controls · where the cash sits</figcaption>
           </figure>
 
+          <div class="build-howto" id="how-to-use">
+            <div class="build-howto__head">
+              <h2>How to use it</h2>
+              <span class="build-howto__len">2 min 32 s · narrated, with subtitles</span>
+            </div>
+            <p class="build-howto__intro">A walkthrough of the sample workbook: what it shows, where to type, and the monthly refresh in five steps.</p>
+            <figure class="preview-figure">
+              <div class="app-frame">
+                <div class="app-frame__body">
+                  <video controls playsinline preload="none" width="1920" height="1080" poster="assets/operational-finance-control/how-to-use-poster.webp" aria-label="How to use the Operational Finance Control Tower, a narrated walkthrough with subtitles">
+                    <source src="assets/operational-finance-control/how-to-use.mp4" type="video/mp4">
+                    <a href="assets/operational-finance-control/how-to-use.mp4">Watch the how to use video (MP4)</a>
+                  </video>
+                </div>
+              </div>
+            </figure>
+            <ol class="build-howto__chapters" aria-label="Jump to a part of the video">
+              <li><button type="button" data-t="0"><span class="build-howto__t">0:00</span> What it shows</button></li>
+              <li><button type="button" data-t="24"><span class="build-howto__t">0:24</span> Assumptions</button></li>
+              <li><button type="button" data-t="36"><span class="build-howto__t">0:36</span> Step 1: paste the data</button></li>
+              <li><button type="button" data-t="56.1"><span class="build-howto__t">0:56</span> Step 2: fill in the dates</button></li>
+              <li><button type="button" data-t="72.3"><span class="build-howto__t">1:12</span> Step 3: new campaigns</button></li>
+              <li><button type="button" data-t="83.4"><span class="build-howto__t">1:23</span> Step 4: as of date and Checks</button></li>
+              <li><button type="button" data-t="99.9"><span class="build-howto__t">1:39</span> Step 5: the Dashboard</button></li>
+              <li><button type="button" data-t="130.5"><span class="build-howto__t">2:10</span> Cash and Forecast</button></li>
+            </ol>
+          </div>
+
           <div class="build-desc build-desc--under-preview">
             <p>This build models a recruitment advertising agency. Clients prepay campaign budgets, the agency keeps a contracted margin, and the rest passes through to job board vendors such as Indeed and ZipRecruiter, who invoice weeks later or get charged to the company card. So the bank balance always looks better than the cash the business can use. Four inputs go in, one row per booking, client payment, vendor line, and expense, and every status, paid, on card, invoiced, or not yet invoiced, is worked out from the dates against the as of date.</p>
             <p>The Dashboard leads with available operating cash: cash in bank less the client money held for work not yet delivered, vendor invoices to pay, spend delivered but not yet invoiced, the card balance, and unpaid expenses. A bridge shows each step down from the bank balance, and eight controls mark Clear, Watch, or Act, each with what it's based on: the minimum reserve, client money covered by cash, runway, operating margin, vendor invoices past the terms, invoices not yet received, the card balance, and clients behind on payment. A picker winds every figure on the page back to any month end, and a stacked chart shows where the cash sat each month, with the three forecast months after it.</p>
@@ -149,12 +177,12 @@
   </div>
 </footer>
 
-<script src="theme.js?v=20261115a"></script>
-<script src="reveal.js?v=20261115a"></script>
-<script src="works.js?v=20261115a"></script>
-<script src="build-nav.js?v=20261115a"></script>
-<script src="platforms.js?v=20261115a"></script>
-<script src="build-detail.js?v=20261115a"></script>
+<script src="theme.js?v=20261118a"></script>
+<script src="reveal.js?v=20261118a"></script>
+<script src="works.js?v=20261118a"></script>
+<script src="build-nav.js?v=20261118a"></script>
+<script src="platforms.js?v=20261118a"></script>
+<script src="build-detail.js?v=20261118a"></script>
 <script>
   initBuildNav('operational-finance-control.html');
   initDetailNavScroll();
